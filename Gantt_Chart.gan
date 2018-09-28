@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="CMART" company="Magic Tech" webLink="http://github.com/alzarra/CMART.git" view-date="2018-09-23" view-index="0" gantt-divider-location="300" resource-divider-location="300" version="2.8.7" locale="en_US">
+    <description><![CDATA[A website that help the users to show where is the recyle point in montana state 
+
+sponsred by DEQ]]></description>
+    <view zooming-state="default:5" id="gantt-chart">
+        <field id="tpd3" name="Name" width="167" order="0"/>
+        <field id="tpd4" name="Begin date" width="65" order="1"/>
+        <field id="tpd5" name="End date" width="64" order="2"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="0" name="Meeting with Client" color="#8cb6ce" meeting="false" start="2018-09-21" duration="1" complete="0" thirdDate="2018-09-21" thirdDate-constraint="0" priority="2" expand="true">
+            <notes><![CDATA[WE did meet with her through skype ]]></notes>
+        </task>
+        <task id="3" name="Documentation (porject charter)" color="#8cb6ce" meeting="false" start="2018-09-24" duration="5" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[WE did the project charter and revised by our client ]]></notes>
+        </task>
+        <task id="5" name="Building Basic" color="#8cb6ce" meeting="false" start="2018-09-28" duration="7" complete="0" thirdDate="2018-09-17" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[Building all the main pages that contain the basic information about the porject
+]]></notes>
+        </task>
+        <task id="7" name="Style" color="#8cb6ce" meeting="false" start="2018-10-11" duration="7" complete="0" thirdDate="2018-10-11" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[applying styles to our project 
+(colors, css, animation)]]></notes>
+        </task>
+        <task id="10" name="Mileston 1" color="#8cb6ce" meeting="false" start="2018-10-19" duration="7" complete="0" thirdDate="2018-09-19" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[here we are gather to show what we did and what we will migh improve]]></notes>
+        </task>
+        <task id="13" name="GPS" color="#8cb6ce" meeting="false" start="2018-10-25" duration="7" complete="0" thirdDate="2018-09-17" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[implemant the GPS (google map) ]]></notes>
+        </task>
+        <task id="19" name="filters" color="#8cb6ce" meeting="false" start="2018-11-02" duration="7" complete="0" thirdDate="2018-09-17" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[applying filter and related to the map ]]></notes>
+        </task>
+        <task id="23" name="filling" color="#8cb6ce" meeting="false" start="2018-11-12" duration="7" complete="0" thirdDate="2018-11-02" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[filing the website with all the info we need ]]></notes>
+        </task>
+        <task id="25" name="Mileston 2" color="#8cb6ce" meeting="false" start="2018-11-20" duration="7" complete="0" thirdDate="2018-12-03" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[show up our work, see how the client would like it ]]></notes>
+        </task>
+        <task id="27" name="testing" color="#8cb6ce" meeting="false" start="2018-11-28" duration="7" complete="0" thirdDate="2018-09-28" thirdDate-constraint="0" expand="true"/>
+        <task id="37" name="Mielston 3" color="#8cb6ce" meeting="false" start="2018-12-06" duration="3" complete="0" thirdDate="2018-12-06" thirdDate-constraint="0" expand="true">
+            <notes><![CDATA[here we present our overall project]]></notes>
+        </task>
+    </tasks>
+    <resources/>
+    <allocations/>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+</project>
