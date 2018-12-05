@@ -1,0 +1,9 @@
+how to use Gantt Chart
+
+This is a free virsion of GanttProject app
+
+1- open the zip folder
+2- install Gantt_charter.2.8.7.exe
+3- open the application after installing
+4- load the Gantt_chart.gan 
+
