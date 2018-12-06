@@ -2,76 +2,10 @@
 <html>
 <head>
 	<title>Montana Recycle - Contact Us</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 <style type="text/css">
 		
-	body{
-	background: url(bg.png);
-	background-repeat: no-repeat;
-	background-size: 100%;
-	background-position:0 120px;  
-	background-attachment: fixed;
 
-	font-family: "Lato", sans-serif;
-}
-ul {
-    list-style-type: none;
-    margin: 10px;
-    padding: 10px;
-    overflow: hidden;
-    border: 1px 
-    solid #e7e7e7;
-    background-color: #f3f3f3;
-    background: url(grass_10surprising_header.jpg) ;
-	
-	font-size: 30px;
-	text-align: center;
-
-
-
-
-}
-
-li {
-    float: left;
-
-}
-
-li a {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-family: "Times New Roman", Times, serif;
-
-}
-
-li a:hover:not(.active) {
-    background-color: ;
-}
-
-li a.active {
-    color: black;
-    background-color: #4CAF50;
-}
-#logo {
-	width: 300px;
-	height: 120px;
-}
-h1 {
-	font-family: "Times New Roman", Times, serif;
-	position: fixed;
-	left: 790px;
-	bottom: 790px;
-	font-size: 72px;
-	color: #4CAF50;
-}
-h2 {
-	font-family: Arial, Helvetica, sans-serif;
-	position: fixed;
-	left: 870px;
-	bottom: 800px
 }
 h3 {
 	color : red;
@@ -88,8 +22,9 @@ form {
 
 <!-- logo -->
 <img id="logo" src='05_DEQLogo_TransparentBG_Web.png' alt='logo'>
-<h1>Montana Recycle</h1>
-<h2> Make Montana Green again</h2>
+<img src='MR.png' alt='logo' style="width:250px; float:right;">
+
+
 <!-- nav bar -->
 	<ul>
 		<li><a clas = 'active' href = "index.html">Home</a></li>
@@ -99,57 +34,50 @@ form {
 		<li><a href = 'about.html' > About Us</a></li>
 	</ul>
 
+	<div class="grid-container">
+    <div class="item1">
+            
+              <p1>Contact Us</p>
+    </div>
+    <div class="item2">
+
 	<div>
 	<form class="my-form">
-		<div class="form-group">
-		<label>First Name</label>
-		<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+		<div class="form-group" style="text-align: center;>
+		<label ">First Name</label><br>
+		<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
 
 		<br>
 		<br>
 
-		<label>Last Name</label>
-		<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+		<label>Last Name</label><br>
+		<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
 
 		<br>
 		<br>
 
-		<label id = "email_L">E-mail</label>
-		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);">
+		<label id = "email_L">E-mail</label><br>
+		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
 
 		<br>
 		<br>
 
-		<label >Gender</label>
-		<select name="gender"  onfocus="revertBack(this);"  onblur="makeWhite(this);">
-			<option value="male">Male</option>
-			<option value="female">Female</option>
-			<option value="other">other</option>
-		</select>
+
+
+		<label>Birthday:</label><br>
+		<input type="date" name="birthday"  onfocus="revertBack(this);"  onblur="makeWhite(this);" size="325">
 
 		<br>
 		<br>
 
-		<label>Age:</label>
-		<input type="number" name="age" value="30"  onfocus="revertBack(this);"  onblur="makeWhite(this);">
+				<label>Message</label><br>
+		<textarea name="message" id ="comm" placeholder=""  onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
 
 		<br>
 		<br>
-
-		<label>Birthday:</label>
-		<input type="date" name="birthday"  onfocus="revertBack(this);"  onblur="makeWhite(this);">
-
-		<br>
-		<br>
-
-				<label>Message</label>
-		<textarea name="message" id ="comm" placeholder="you can controle the size of the box if you want "  onfocus="revertBack(this);"  onblur="makeWhite(this);"></textarea>
-
-		<br>
-		<br>
-		
-		</div>
 		<input class="button" type="submit" name="submit" value="Submit" onclick="checkEmail()">
+		</div>
+		
 	</form>
 	</div>
 </body>
