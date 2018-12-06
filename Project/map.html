@@ -240,7 +240,7 @@ function closeNav() {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-
+        /*
         // Add marker
     	var marker = new google.maps.Marker({
       		position: {lat: 46.851446,lng: -114.012625},
@@ -249,12 +249,78 @@ function closeNav() {
       		
     	});
     	var infoWindow1 = new google.maps.InfoWindow({
-    		content: 'Batteries Plus Bulbs<br> Batteries, CFLs & Tubes'
+    		content: 'Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes'
     	});
 
     	marker.addListener('click', function(){
     		infoWindow1.open(map, marker);
     	});
+    	*/
+    	// Batteries Plus Bulbs : Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes 
+    	addMarker({coords:{lat: 46.851446,lng: -114.012625}, content: 'Batteries Plus Bulbs : <br>Batteries, CFLs & Tubes'});
+    	// Bayern Brewing Inc : Batteries, CFLs & Tubes
+    	addMarker({coords:{lat: 46.872641,lng: -114.020211}, content: 'Bayern Brewing Inc : <br>Batteries, CFLs & Tubes'});
+    	// Best Buy : Electronics
+    	addMarker({coords:{lat: 46.889230,lng: -114.037012}, content: 'Best Buy : <br>Electronics'});
+    	// Emerald Services : Automotive Fluids & Waste Water
+    	addMarker({coords:{lat: 46.880620,lng: -114.002600}, content: 'Emerald Services : <br>Automotive Fluids & Waste Water'});
+    	// Garden City Recycling : Metal, Cardboard, Paper, Glass (Bayern Eco Pacs), Plastic
+    	// no physical location
+    	// Home Depot: Batteries, CFLs
+    	addMarker({coords:{lat: 46.889920,lng: -114.044634}, content: 'Home Depot: <br>Batteries, CFLs' });
+    	//i.e. Recycling: Cardboard, Paper, Glass, Plastic,,Wood & Lawn Waste, Electronics
+    	// not in missoula 
+    	// JC Penney: Plastic Bags
+    	addMarker({coords:{lat: 46.845190,lng: -114.030109}, content: 'JC Penney: <br>Plastic Bags'});
+    	//Lowes : Batteries, Plastic Bags, CFLS
+    	addMarker({coords:{lat: 46.892964,lng: -114.037458}, content: 'Lowes : <br>Batteries, Plastic Bags, CFLS'});
+    	//Missoula County: Vehicles
+    	addMarker({coords:{lat: 46.875820,lng: -113.995585}, content: 'Missoula County: <br>Vehicles'});
+    	//Missoula Fresh Market: Plastic Bags
+    	addMarker({coords:{lat: 46.876121,lng: -114.005345}, content: 'Missoula Fresh Market: <br>Plastic Bags'});
+    	//Pacific Steel and Recycling : Batteries, Metal, Cardboard, Paper, Electronics
+    	addMarker({coords:{lat: 46.888245,lng: -114.032566}, content: 'Pacific Steel and Recycling : <br>Batteries, Metal, Cardboard, Paper, Electronics'});
+    	//Staples : Electronics
+    	addMarker({coords:{lat: 46.885492,lng: -114.036634}, content: 'Staples : <br>Electronics'});
+    	//Target : Plastic Bags
+    	addMarker({coords:{lat: 46.888071,lng: -114.037189}, content: 'Target : <br>Plastic Bags'});
+    	//Wal-Mart Supercenter : Plastic Bags //has 2 location
+    	addMarker({coords:{lat: 46.831934,lng: -114.047511}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
+    	addMarker({coords:{lat: 46.884144,lng: -114.042075}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
+    	//Axmen Recycling : Batteries, Metal, Electronics, Vehicles
+    	addMarker({coords:{lat: 46.942566,lng: -114.133235}, content: 'Axmen Recycling : <br>Batteries, Metal, Electronics, Vehicles'});
+    	//P.E.T.E.S., Inc.: Tubes, Electronics
+    	addMarker({coords:{lat: 46.842354,lng: -114.038380}, content: 'P.E.T.E.S., Inc.: <br>Tubes, Electronics'});
+    	//Republic Services: Republic Services, Metal, Cardboard, Paper, Plastic
+    	addMarker({coords:{lat: 46.888991,lng: -114.012687}, content: 'Republic Services: <br>Republic Services, Metal, Cardboard, Paper, Plastic'});
+
+    	
+
+
+
+    	//find better way to for marker (marker function)
+    	function addMarker(props){
+    		var marker = new google.maps.Marker({
+      		position: props.coords,
+      		map: map,
+      		icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    		});
+
+    		// Check content
+    		if(props.content){
+    			var infoWindow1 = new google.maps.InfoWindow({
+    				content: props.content
+    			});
+    			marker.addListener('click', function(){
+    				infoWindow1.open(map, marker);
+    			});
+
+    		}
+
+    	}
+    	
+
+
     }
 
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
