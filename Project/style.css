@@ -43,6 +43,30 @@ li a:hover {
   display: block;
 }
 
+li2 {
+  float: right;
+
+}
+
+li2 a {
+  display: block;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  padding: 20px 30px;
+  text-decoration: none;
+  border: 2px solid transparent;
+}
+
+li2 a:hover {
+  background-color: rgb(41, 74, 112);
+  color: rgb(244, 160, 36);
+  border: 2px solid rgb(244, 160, 36);
+  display: block;
+}
+
+
 .grid-container { //Background Properties
   display: grid;
   //grid-gap: 10px;
