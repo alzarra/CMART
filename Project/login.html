@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Montana Recycle - User</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css">
+		
+
+}
+h3 {
+	color : red;
+	margin-left: 20px;
+}
+
+form {
+	margin-left: 10%;
+	font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<!-- logo -->
+<img id="logo" src='05_DEQLogo_TransparentBG_Web.png' alt='logo'>
+<img src='MR.png' alt='logo' style="width:250px; float:right;">
+
+
+<!-- nav bar -->
+	<ul>
+		<li><a clas = 'active' href = "index.html">Home</a></li>
+		<li><a href = 'map.html' > Map</a></li>
+		<li><a href = 'FAQ.html' > FAQ </a></li>
+		<li><a href = 'contact.html' > Contact Us</a></li>
+		<li><a href = 'about.html' > About Us</a></li>
+        <li><a href = 'stats.html' > See your Recycling Statistics</a></li>
+        <li2><a href = 'login.html' > Login/Sign Up</a></li>
+	</ul>
+	
+	<div class="grid-container">
+    <div class="item1">
+            
+              <p1>Sign Up</p>
+    </div>
+    <div class="item2">
+
+	<div>
+	<form class="my-form">
+		<div class="form-group" style="text-align: center;>
+		<label ">Username</label><br>
+		<input type="text" name="userName" id="userName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+
+		<br>
+		<br>
+
+		<label>Password</label><br>
+		<input type="password" name="password"  id="myInput" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<br>
+		<input type="checkbox" onclick="myFunction()">Show Password
+
+		<br>
+		<br>
+
+		<label id = "email_L">E-mail</label><br>
+		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+
+		<br>
+		<br>
+
+
+
+		
+
+		<br>
+		<br>
+		<input class="button" type="submit" name="submit" value="Create" onclick="checkEmail()">
+		</div>
+		
+	</form>
+	</div>
+
+	<script>
+		function myFunction() {
+		  var x = document.getElementById("myInput");
+		  if (x.type === "password") {
+		    x.type = "text";
+		  } else {
+		    x.type = "password";
+		  }
+		}
+	</script>
+</body>
+</html>
