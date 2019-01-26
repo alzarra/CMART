@@ -74,6 +74,21 @@ input {
 	margin-left: 20%;
 
 }
+.checkbox {
+	border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+.checkbox:hover {
+  background-color: #ddd;
+}
+
+.checkbox.active {
+  background-color: #666;
+  color: white;
+}
 </style>
 <body>
 <!-- logo -->
@@ -113,20 +128,21 @@ input {
   </select>
   <a href="#">Kind of Material</a>
   
-  	<input id="KoM" type="checkbox" name="Plastic" value="Plastic"> Plastic<br>
-  	<input id="KoM" type="checkbox" name="Batteries" value="Batteries"> Batteries<br>
-  	<input id="KoM" type="checkbox" name="Metal" value="Metal"> Metal<br>
-  	<input id="KoM" type="checkbox" name="Cardboard" value="Cardboard"> Cardboard<br>
-  	<input id="KoM" type="checkbox" name="Paper" value="Paper"> Paper<br>
-  	<input id="KoM" type="checkbox" name="Glass" value="Glass"> Glass<br>
-  	<input id="KoM" type="checkbox" name="Plastic Bags/Film/Wrap" value="Plastic Bags/Film/Wrap"> Plastic Bags/Film/Wrapc<br>
-  	<input id="KoM" type="checkbox" name="CFLs & Tubes" value="CFLs & Tubes"> CFLs & Tubes<br>
-  	<input id="KoM" type="checkbox" name="Wood & Lawn Waste/Kitchen Compost" value="Wood & Lawn Waste/Kitchen Compost"> Wood & Lawn Waste/Kitchen Compost<br>
-  	<input id="KoM" type="checkbox" name="Cooking Oil" value="Cooking Oil"> Cooking Oil<br>
-  	<input id="KoM" type="checkbox" name="Electronics" value="Electronics"> Electronics<br>
-  	<input id="KoM" type="checkbox" name="Automotive Fluids & Waste Water" value="Automotive Fluids & Waste Water"> Automotive Fluids & Waste Water<br>
-  	<input id="KoM" type="checkbox" name="Tires" value="Tires"> Tires<br>
-  	<input id="KoM" type="checkbox" name="Vehicles" value="Vehicles"> Vehicles<br>
+  	<input id="KoM" class="checkbox" name="all" value="all"> <br>
+  	<input id="KoM" class="checkbox" name="Plastic" value="Plastic"> <br>
+  	<input id="KoM" class="checkbox" name="Batteries" value="Batteries"> <br>
+  	<input id="KoM" class="checkbox" name="Metal" value="Metal"> <br>
+  	<input id="KoM" class="checkbox" name="Cardboard" value="Cardboard"> <br>
+  	<input id="KoM" class="checkbox" name="Paper" value="Paper"> <br>
+  	<input id="KoM" class="checkbox" name="Glass" value="Glass"> <br>
+  	<input id="KoM" class="checkbox" name="Plastic Bags/Film/Wrap" value="Plastic Bags/Film/Wrap"> <br>
+  	<input id="KoM" class="checkbox" name="CFLs & Tubes" value="CFLs & Tubes"> <br>
+  	<input id="KoM" class="checkbox" name="Wood & Lawn Waste/Kitchen Compost" value="Wood & Lawn Waste/Kitchen Compost"> <br>
+  	<input id="KoM" class="checkbox" name="Cooking Oil" value="Cooking Oil"> <br>
+  	<input id="KoM" class="checkbox" name="Electronics" value="Electronics"> <br>
+  	<input id="KoM" class="checkbox" name="Automotive Fluids & Waste Water" value="Automotive Fluids & Waste Water"> <br>
+  	<input id="KoM" class="checkbox" name="Tires" value="Tires"> <br>
+  	<input id="KoM" class="checkbox" name="Vehicles" value="Vehicles"> <br>
 
   	<br>
   
@@ -158,6 +174,7 @@ function closeNav() {
 
 
  <script>
+
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
     // failed.", it means you probably did not give permission for the browser to
@@ -166,26 +183,64 @@ function closeNav() {
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
           	center: {lat: 46.8797, lng: -110.3626},
-          	zoom: 7
-          	,visibility: 'false'
+          	zoom: 7,
+          	visibility: 'false',
+          	disableDefaultUI: false,     // to show the UI of the map
+          	scrollwheel: true,    // to use scroll wheel for zooming
+          	draggable: true,     // to allow the user to drag the map with mouse
+          	//mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
+          	maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
+          	minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
+          	// setting the zoom control style and postion
+          	zoomControlOptions: {
+          		position: google.maps.ControlPosition.TOP_RIGHT,
+          		//style: google.maps.ZoomControlStyle.DEFAULT
+          	}
+
+
         });
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
+
         if (navigator.geolocation) {
+        	var global_pos ={
+              		lat: 5,
+              		lng: 5}
           	navigator.geolocation.getCurrentPosition(function(position) {
             	var pos = {
               		lat: position.coords.latitude,
               		lng: position.coords.longitude
             	};
+            	global_pos = pos;
+           		console.log(global_pos);
+
+           		          	console.log("Start Draw");
+          	var Range_circle = new google.maps.Circle({
+	            strokeColor: '#FF0000',
+	            strokeOpacity: 0.8,
+	            strokeWeight: 2,
+	            fillColor: '#FF0000',
+	            fillOpacity: 0.35,
+	            map: map,
+	            center: global_pos,
+	            radius: Math.sqrt(100) * 1000
+	          });
+
+          			
+
+			
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Your location');
             infoWindow.open(map);
             map.setCenter(pos);
+            map.setZoom(12);
             }, function() {
             	handleLocationError(true, infoWindow, map.getCenter());
           	});
+
+
         } else {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
@@ -193,77 +248,83 @@ function closeNav() {
 
         // // HIGHLIGHING MONTNANA
 
-        //  // Define the LatLng coordinates for the polygon's  outer path.
-        // var outerCoords = [
-        //   {lat: 66.08936427047088, lng: -25.48828125},
-        //   {lat: 66.16051056018838, lng: -183.691406255},
-        //   {lat: -14.604847155053898, lng: -187.03125},
-        //   {lat: -7.18810087117902, lng: -32.51953125},
-        //   {lat: 66.08936427047088, lng: -25.48828125}
+         // Define the LatLng coordinates for the polygon's  outer path.
+        var outerCoords = [
+          {lat: 66.08936427047088, lng: -25.48828125},
+          {lat: 66.16051056018838, lng: -183.691406255},
+          {lat: -14.604847155053898, lng: -187.03125},
+          {lat: -7.18810087117902, lng: -32.51953125},
+          {lat: 66.08936427047088, lng: -25.48828125}
 
           
 
           
-        // ];
+        ];
 
-        // // Define the LatLng coordinates for the polygon's inner path.
-        // // Note that the points forming the inner path are wound in the
-        // // opposite direction to those in the outer path, to form the hole.
-        // var innerCoords = [
-        //   {lat: 48.99463598353405, lng: -104.04052734375},
-        //   {lat: 49.001843917978526, lng: -116.0540771484375},
-        //   {lat: 47.97705279557946, lng: -116.0430908203125},
-        //   {lat: 47.931066347509784, lng: -115.94970703125},
-        //   {lat: 47.70976154266637, lng: -115.7080078125},
-        //   {lat: 47.502358951968574, lng: -115.7080078125},
-        //   {lat: 47.27922900257082, lng: -115.42236328124999},
-        //   {lat: 46.73986059969267, lng: -114.67529296874999},
-        //   {lat: 46.63435070293566, lng: -114.36767578124999},
-        //   {lat: 46.36209301204985, lng: -114.41162109375},
-        //   {lat: 46.01222384063236, lng: -114.43359375},
-        //   {lat: 45.62940492064501, lng: -114.521484375},
-        //   {lat: 45.42929873257377 , lng: -114.32373046875},
-        //   {lat: 45.644768217751924, lng: -113.92822265625},
-        //   {lat: 45.24395342262324 , lng: -113.64257812499999},
-        //   {lat: 44.793530904744074, lng: -113.26904296874999},
-        //   {lat: 44.402391829093915, lng: -112.8515625},
-        //   {lat: 44.49650533109348, lng:-112.19238281249999 },
-        //   {lat: 44.715513732021336, lng: -111.4013671875},
-        //   {lat: 44.449467536006935, lng: -111.02783203125},
-        //   {lat: 44.99588261816546, lng: -111.07177734375},
-        //   {lat: 44.98034238084973, lng:-104.04052734375},
-        //   {lat: 48.99463598353405, lng: -104.04052734375},
+        // Define the LatLng coordinates for the polygon's inner path.
+        // Note that the points forming the inner path are wound in the
+        // opposite direction to those in the outer path, to form the hole.
+        var innerCoords = [
+          {lat: 48.99463598353405, lng: -104.04052734375},
+          {lat: 44.98034238084973, lng:-104.04052734375},
+          {lat: 44.99588261816546, lng: -111.07177734375},
+          {lat: 44.449467536006935, lng: -111.02783203125},
+          {lat: 44.715513732021336, lng: -111.4013671875},
+          {lat: 44.715513732021336, lng: -111.4013671875},
+          {lat: 44.49650533109348, lng:-112.19238281249999 },
+          {lat: 44.402391829093915, lng: -112.8515625},
+          {lat: 44.793530904744074, lng: -113.26904296874999},
+          {lat: 45.24395342262324 , lng: -113.64257812499999},
+          {lat: 45.644768217751924, lng: -113.92822265625},
+          {lat: 45.42929873257377 , lng: -114.32373046875},
+          {lat: 45.62940492064501, lng: -114.521484375},
+          {lat: 46.01222384063236, lng: -114.43359375},
+          {lat: 46.36209301204985, lng: -114.41162109375},
+          {lat: 46.63435070293566, lng: -114.36767578124999},
+          {lat: 46.73986059969267, lng: -114.67529296874999}, 
+          {lat: 47.27922900257082, lng: -115.42236328124999},
+          {lat: 47.502358951968574, lng: -115.7080078125},
+         {lat: 47.70976154266637, lng: -115.7080078125}, 
+         {lat: 47.931066347509784, lng: -115.94970703125},
+         {lat: 47.97705279557946, lng: -116.0430908203125},
+          {lat: 49.001843917978526, lng: -116.0540771484375},
+   
+          {lat: 48.99463598353405, lng: -104.04052734375}
 
-        // ];
+        ];
 
-        // // Construct the polygon
-        // var Montana_Map_out = new google.maps.Polygon({
-        //   paths: [outerCoords, innerCoords],
-        //   strokeColor: '#00000',
-        //   strokeOpacity: 1,
-        //   strokeWeight: 5,
-        //   fillColor: '#00000',
-        //   fillOpacity: .3
-        // });
-        // // Construct the polygon 
-        // // var Montana_Map_in = new google.maps.Polygon({
-        // //   paths: [innerCoords],
-        // //   strokeColor: '#01010',
-        // //   strokeOpacity: 1,
-        // //   strokeWeight: 2,
-        // //   fillColor: '#00000',
-        // //   fillOpacity: .5
-        // // });
-        // Montana_Map_out.setMap(map);
-        // Montana_Map_in.setMap(map);
-
-
-
-
-
-
-
+        // Construct the polygon
+        var Montana_Map_out = new google.maps.Polygon({
+          paths: [outerCoords, innerCoords],
+          strokeColor: '#00000',
+          strokeOpacity: 1,
+          strokeWeight: 5,
+          fillColor: '#00000',
+          fillOpacity: .5
+        });
+       
+        Montana_Map_out.setMap(map);
+       
 ////////////////////////////////////////////////////
+
+// range circle
+
+if (navigator.geolocation) {
+	var Range_circle = new google.maps.Circle({
+	            strokeColor: '#FF0000',
+	            strokeOpacity: 0.8,
+	            strokeWeight: 2,
+	            fillColor: '#FF0000',
+	            fillOpacity: 0.35,
+	            map: map,
+	            center: {lat: 49.25, lng: -123.1},
+	            radius: Math.sqrt(100) * 1000
+	          });
+
+			Range_circle.setMap(map);
+		}
+
+/////////////////////////////////////////////////////
 
         /*
         // Add marker
@@ -282,7 +343,7 @@ function closeNav() {
     	});
     	*/
     	// Batteries Plus Bulbs : Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes 
-    	addMarker({coords:{lat: 46.851446,lng: -114.012625}, content: 'Batteries Plus Bulbs : <br>Batteries, CFLs & Tubes'});
+    	addMarker({coords:{lat: 46.851446,lng: -114.012625},  content: 'Batteries Plus Bulbs : <br>Batteries, CFLs & Tubes'});
     	// Bayern Brewing Inc : Batteries, CFLs & Tubes
     	addMarker({coords:{lat: 46.872641,lng: -114.020211}, content: 'Bayern Brewing Inc : <br>Batteries, CFLs & Tubes'});
     	// Best Buy : Electronics
