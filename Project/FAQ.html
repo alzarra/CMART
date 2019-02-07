@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <html>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
 <head>
@@ -25,6 +27,15 @@ ol {
 input{
 	margin-left:45%;
 }
+
+h2.searchLabel{
+	text-align: center;
+}
+
+input.searchBar{
+	/*Customzie it
+	*/
+}
 </style>
 </head>
 <body>
@@ -39,8 +50,6 @@ input{
 		<li><a href = 'FAQ.html' > FAQ </a></li>
 		<li><a href = 'contact.html' > Contact Us</a></li>
 		<li><a href = 'about.html' > About Us</a></li>
-        <li><a href = 'stats.html' > See your Recycling Statistics</a></li>
-        <li2><a href = 'login.html' > Login/Sign Up</a></li>
 	</ul>
 
 	<div class="grid-container2">
@@ -49,17 +58,15 @@ input{
               <p1>FAQ</p>
     </div>
     <div class="item22">
-
-<!-- 	<div ng-app="myApp" ng-controller="namesCtrl">
-
-		<p><input type="text" ng-model="test"></p>
+			<h2 class= "searchLabel">Search Your Question Here.</h2>
+ 	<div ng-app="myApp" ng-controller="namesCtrl">
+<!-- Get no message error-->
+		<p><input  class="searchBar" type="text" ng-model="questions"></p>
 
 		
-		  <p ng-repeat="x in names | filter:test">
+		  <p ng-repeat="x in names | filter:questions">
 		    {{ x }}
-		    <h3 ng-repeat="y in text | filter:test">
-		    {{ y }}
-		  </h3>
+		
 		  </p>
 		
 	</div>
@@ -67,26 +74,47 @@ input{
 	<script>
 		angular.module('myApp', []).controller('namesCtrl', function($scope) {
 		    $scope.names = [
-		    	'1. How many collection points are there in Montana for recyclable materials?',
-		        '2. How much do we recycle in Montana? How does it affect our economy?',
-		        '3. Why are some materials recycled and not others?',
-		        '4. What happens after materials are collected for recycling?',
-		        '5. Where are the markets for recycled material?',
-		        '6. Why is it important to buy recycled-content products?',
-		        '7. What are the biggest obstacles to recycling in Montana?',
-		        '8. Will recycling pay for itself?',
-		        '9. Can we reduce waste disposal costs by increasing recycling?',
-		        '10. What is Pay As You Throw, or variable disposal rates? How can they help reduce waste?',
-		        '11. Are there any incentives to recycle or reduce waste in Montana?'
-		    ];
+		    	'Q 1: How many collection points are there in Montana for recyclable materials? ',
+				'A 1: In Montana there are more than 100 recycling collection points for materials collecting 15 materials. 90% of Montana citizens live in communities that offer some type of recycling. Aluminum beverage cans, newspaper, cardboard and non-ferrous metals are the most widely collected materials.',
+		        
+				'Q 2: How much do we recycle in Montana? How does it affect our economy?' + 'A 2:The Montana Department of Environmental Quality collects information on recycling rates through an annual survey. Montana’s recycling rate, including composting, was estimated at 19% in 2014. This estimate was derived from a voluntary industry survey that included public, private and non-profit recycling entities. These numbers include composted material in addition to traditional recycling. You can view the DEQ’s summary reports here.',
+		        
+				'Q 3: Why are some materials recycled and not others?',
+				'A 3: The most commonly collected recyclables in Montana are higher value fibers such as corrugated cardboard, newsprint, magazine and office paper (often collected with newsprint), and metals such as steel and aluminum in cans, scrap metal or old appliances. The established infrastructure and higher market value for these commodities more readily cover the costs of collecting, bundling, and shipping the materials for end use. Items such as plastics, glass, and electronic waste have less established recycling network and additional challenges throughout the recycling process. In the case of plastics, there is a high volume that can be difficult to consolidate (think of all the air in one milk jug!) and many types of grades that can be less valuable and more difficult to sell when mix. Glass is a heavy item, which is difficult to economically and environmentally ship to an end use markets. It is better used locally as has been shown by demonstrations through partnerships by Headwaters Recycling, which has pulverized glass for use in landscaping and construction projects across the state. Electronic waste is more specialized and can require special handling and labor to dismantle in recyclable components. Yellowstone E-Waste Solutions has overcome this challenge by including a fee to cover this cost for some items. They provide a drop-off locations in Billing, partner with the City of Helena once a month, and provide collection across the state through events and pre-scheduled pickups. Many retailers and manufacturers provide in house program collection or mail-in programs as well.',
 
-		    $scope.text = [
-		    	'Hi'
+		        'Q 4: What happens after materials are collected for recycling?',
+				'A 4: Materials are transported from home recycling bins to recycling businesses by curbside recycling programs, or more often in Montana, by citizens using drop-off bins that are collected by recycling programs and sent to recyclers. Employees at Montana’s recycling businesses then sort, bale and prepare the materials according to processor specifications prior to shipment by rail or truck. Each material has its own market, with its own requirements. There are some markets within Montana for processed materials; however, because of our low manufacturing base, most materials are sent out of state.',
+
+		        'Q 5: Where are the markets for recycled material?',
+				'A 5: People sometimes think that the local recycling center that takes their separated material is the market. People say that they are willing to separate more materials and bring them in if only the recycler will take them. Or, some people think that if their community starts a curbside recycling program that will “solve” recycling.',
+
+		        'Q 6: Why is it important to buy recycled-content products?',
+				'A 6: Buying recycled-content products “Closes the Loop” on recycling and supports manufacturers that provide markets for collected recyclables. The Montana Guide to Buying Recycled Products provides information about products available in Montana that contain recycled-content. Products include clothing, construction, paper, equipment and more.',
+
+		        'Q 7: What are the biggest obstacles to recycling in Montana?',
+				'A 7: here are almost no mills in Montana. Most mills are located close to their customers, the manufacturers who use recycled content materials in their products. As a result, materials collected for recycling in Montana are sent all over the U.S. and even other countries. That means that transportation costs are large, making heavy or bulky items especially expensive to recycle in our state.',
+
+
+		        'Q 8: Will recycling pay for itself?',
+				'A 8: The price for recovered material fluctuates widely. In extremely good times of strong market demand, recycling collection programs can pay for themselves, especially with revenues from metals. However, to keep a recycling program alive in a community during poor market conditions, it is important to keep the collection costs low and plan for sustainable long-term collection. This can include working to connect existing solid waste infrastructure in support of recycling, focusing on a limited range of commodities, and taking other steps to ensure collection can weather weak markets by breaking even when commodity revenues are lower.',
+
+
+		        'Q 9: Can we reduce waste disposal costs by increasing recycling?',
+				'A 9: The cost of trash disposal is made-up of fixed costs and variable costs. Fixed costs remain constant if there are 1 or 100 tons of waste. Examples of fixed costs are personnel and equipment. Variable costs, such as fuel and tipping fees, change in direct proportion to the amount of waste. In reality, waste disposal costs are more like step-costs, which do not change unless the amount of waste changes considerably. For example, if waste increases substantially, additional employees or equipment may be needed. By reducing the amount of waste we dispose of, recycling can reduce some costs for trash disposal. But in reality, recycling will probably not result in large cost savings unless it reduces a significant part of the waste stream.',
+
+
+		        'Q 10: What is Pay As You Throw, or variable disposal rates? How can they help reduce waste?',
+				'A 10: The basic idea behind variable disposal rates is simply that “you pay for what you throw.” Rather than charging all households a flat fee for trash disposal, households with more trash would pay more than those with less trash. This provides an incentive to reduce waste and increase recycling. It’s a good idea, if everybody plays by the rules.',
+
+		        'Q 11: Are there any incentives to recycle or reduce waste in Montana?',
+				'A 11: The Montana Department of Environmental Quality has information about tax incentives provided to encourage businesses to invest in recycling equipment and to purchase materials with post-consumer recycled-content, including compost. Contact the Department of Revenue in Helena (406-444-6900) with questions about using the tax incentives.'
 		    ];
 		});
-	</script> -->
+	</script>
 
 
+
+<!--
 <h3>1. How many collection points are there in Montana for recyclable materials?</h3>
 <p style="margin-right: 50px;">In Montana there are more than 100 recycling collection points for materials, collecting 15 materials. 90% of Montana citizens live in communities that offer some type of recycling. Aluminum beverage cans, newspaper, cardboard and non-ferrous metals are the most widely collected materials. Click here to go to the Recycling Center Locator. </p>
 
@@ -173,7 +201,9 @@ ________________________________________________________________________________
 
 <h3>11. Are there any incentives to recycle or reduce waste in Montana?</h3>
 <p style="margin-right: 50px;">The Montana Department of Environmental Quality has information about tax incentives provided to encourage businesses to invest in recycling equipment and to purchase materials with post-consumer recycled-content, including compost. Contact the Department of Revenue in Helena (406-444-6900) with questions about using the tax incentives.</p>
-	
+-->
+
+
 
 </body>
 </html>
