@@ -17,6 +17,115 @@ form {
 	font-size: 20px;
 }
 </style>
+
+		<script language="javascript">
+			function checkFields()
+			{
+				var email = document.getElementById("email");
+				var firstname = document.getElementById("firstName");
+				var lastname = document.getElementById("lastName");
+				var comment = document.getElementById("comment");
+				var sub = document.getElementById("sub");
+				var count = 0;
+				
+				
+				
+				
+				
+				if(firstname.value == "")
+				{
+					window.alert("Please enter your first name.");
+					firstname.style.background = "#ff9696";
+					return false;
+				}
+				else
+				{
+					count = count+1;
+				}
+				
+				
+				
+				
+				if(lastname.value == "")
+				{
+					window.alert("Please enter your last name.");
+					lastname.style.background = "#ff9696";
+					return false;
+				}
+				else
+				{
+					count = count+1;
+				}
+				
+				
+				
+				if(email.value == "")
+				{
+					window.alert("Please enter your email.");
+					email.style.background = "#ff9696";
+					return false;
+				}
+				else
+				{
+					count = count+1;
+				}
+				
+				
+				
+				
+				if(comment.value == "")
+				{
+					window.alert("Please enter a comment.");
+					comment.style.background = "#ff9696";
+					return false;
+				}
+				else
+				{
+					count = count+1;
+				}
+
+				
+				
+				
+				
+				
+				if(count >= 4)
+				{
+					//window.alert("Thank you for sending us a message!");
+					//window.location = "contact.html";
+					document.getElementById("firstName_L").style.display = "none";
+					firstname.style.display = "none";
+					document.getElementById("lastName_L").style.display = "none";
+					lastname.style.display = "none";
+					document.getElementById("email_L").style.display = "none";
+					email.style.display = "none";
+					document.getElementById("comment_L").style.display = "none";
+					comment.style.display = "none";
+					document.getElementById("submit_L").style.display = "none";
+
+
+					sub.click();
+
+				}
+				else
+				{
+					count = 0;
+				}
+			}
+			
+			function revertBack(control)
+			{
+				control.style.background = "#d2d2d2";
+			}
+			function makeWhite(control)
+			{
+				control.style.background = "#ffffff";
+			}
+		</script>
+
+
+
+
 </head>
 <body>
 
@@ -43,44 +152,53 @@ form {
     </div>
     <div class="item2">
 
-	<div>
-	<form class="gform" method="POST" data-email="carrizo.jfa@gmail.com"
-	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
-		<div class="form-group" style="text-align: center;>
-		<label ">First Name</label><br>
-		<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
-
-		<br>
-		<br>
-
-		<label>Last Name</label><br>
-		<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
-
-		<br>
-		<br>
-
-		<label id = "email_L">E-mail</label><br>
-		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<div>
+			<form class="gform" method="POST" data-email="mohammad.alsaad93@gmail.com"
+			action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec"  style="text-align: center">
 
 
-		<br>
-		<br>
+				<div class="form-group">
+					<label id = "firstName_L" >First Name</label><br>
+					<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
 
-				<label>Message</label><br>
-		<textarea name="message" id ="comm" placeholder=""  onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
+					<br>
+					<br>
 
-		<br>
-		<br>
-		<input class="button" type="submit" name="submit" value="Submit" onclick="checkEmail()">
+					<label id = "lastName_L" >Last Name</label><br>
+					<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+
+					<br>
+					<br>
+
+					<label id = "email_L">E-mail</label><br>
+					<input type="text" id = "email" name="email" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+
+
+					<br>
+					<br>
+
+					<input class="button" id="sub" type="submit" name="submit" value="Submit" style="display:none;" onclick="checkFields();">
+
+					<label id = "comment_L" >Message</label><br>
+					<textarea name="comment" id ="comment" placeholder=""  onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
+
+					<br>
+					<br>
+					
+				</div>
+
+
+				<div style="display:none" class="thankyou_message" >
+		 			<!-- You can customize the thankyou message by editing the code below -->
+		 			<h2 style="text-align: center";><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
+				</div>
+			
+			</form>
 		</div>
-
-		<div style="display:none" class="thankyou_message">
- <!-- You can customize the thankyou message by editing the code below -->
- <h2><em>Thanks</em> for contacting us! We will get back to you soon!
- </h2>
-</div>
+		<div style="text-align: center";>
+			<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();">
+		</div>
 		
-	</form>
 	</div>
 	<script data-cfasync="false" type="text/javascript" src="email.js"></script>
 </body>
