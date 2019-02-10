@@ -44,7 +44,7 @@ form {
     <div class="item2">
 
 	<div>
-	<form class="gform" method="POST" data-email="mohammad.alsaad93@gmail.com"
+	<form class="gform" method="POST" data-email="carrizo.jfa@gmail.com"
 	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
 		<div class="form-group" style="text-align: center;>
 		<label ">First Name</label><br>
@@ -62,13 +62,6 @@ form {
 		<label id = "email_L">E-mail</label><br>
 		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
 
-		<br>
-		<br>
-
-
-
-		<label>Birthday:</label><br>
-		<input type="date" name="birthday"  onfocus="revertBack(this);"  onblur="makeWhite(this);" size="325">
 
 		<br>
 		<br>
@@ -80,8 +73,15 @@ form {
 		<br>
 		<input class="button" type="submit" name="submit" value="Submit" onclick="checkEmail()">
 		</div>
+
+		<div style="display:none" class="thankyou_message">
+ <!-- You can customize the thankyou message by editing the code below -->
+ <h2><em>Thanks</em> for contacting us! We will get back to you soon!
+ </h2>
+</div>
 		
 	</form>
 	</div>
+	<script data-cfasync="false" type="text/javascript" src="email.js"></script>
 </body>
 </html>
