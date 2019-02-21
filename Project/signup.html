@@ -39,7 +39,7 @@ form {
 	<div class="grid-container">
     <div class="item1">
             
-              <p1>Log In</p>
+              <p1>Sign Up</p>
     </div>
     <div class="item2">
 
@@ -57,11 +57,25 @@ form {
 		<br>
 		<input type="checkbox" onclick="myFunction()">Show Password
 
+		<br>
+		<br>
+
+		<label id = "email_L">E-mail</label><br>
+		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+
 
 		<br>
 		<br>
-		<input class="button" type="submit" name="submit" value="Login" onclick="checkEmail()">
+		<input class="button" type="submit" name="submit" value="Create" onclick="checkEmail()">
 
+		<br>
+		<br>
+
+
+		<label>Already got an account?</label><br>
+		<input class="button" type="button" name="login" value="Login!" onClick="location.href = 'login.html'">
+
+		</div>
 
 
 		
