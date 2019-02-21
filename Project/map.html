@@ -7,118 +7,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 
-<style type="text/css">
 
-#logo {
-	width: 300px;
-	height: 120px;
-}
-
-
-
-.sidenav {
-    height: 95%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #aed6f1;
-    border: 5px solid rgb(244, 160, 36);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-span {
-	position: fixed;
-	bottom: 50%;
-}
-select {
-	margin-left: 50px;
-}
-
-input {
-	margin-left: 50px;
-
-}
-#map {
-	width: 80%;
-	height: 100%;
-	margin-top: 0%;
-	margin-left: 20%;
-
-}
-/*.checkbox {
-	border: none;
-  outline: none;
-  padding: 12px 16px;
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-.checkbox:hover {
-  background-color: #ddd;
-}
-
-.checkbox.active {
-  background-color: #666;
-  color: white;
-}*/
-
-
-input.chk-btn {
-  display: none;
-
-}
-input.chk-btn + label {
-  border: 1px solid grey;
-  background: ghoswhite;
-  padding: 5px 8px;
-  cursor: pointer;
-  border-radius: 5px;
-  background: #FFFFFF;
-  margin: 10px;
- 
-}
-input.chk-btn:not(:checked) + label:hover {
-  box-shadow: 0px 1px 3px;
-  background: #7CEA8D;
-
-  
-}
-input.chk-btn + label:active,
-input.chk-btn:checked + label {
-  box-shadow: 0px 0px 3px inset;
-  background: #8cc472;
-  
-}
-
-</style>
 <body>
 <!-- logo -->
 <img id="logo" src='05_DEQLogo_TransparentBG_Web.png' alt='logo'>
@@ -529,6 +418,8 @@ if (navigator.geolocation) {
 </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
         async defer></script>
+
+<div id="location_info"><div>
 
 </body>
 </html>
