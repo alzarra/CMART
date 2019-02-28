@@ -2,8 +2,8 @@
 <html>
 <head>
 	<title>Montana Recycle - User</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="database.js"></script>
+	<link href="style.css">
+	
 <style type="text/css">
 		
 
@@ -45,10 +45,10 @@ form {
     <div class="item2">
 
 	<div>
-	<form class="my-form">
+	<form method="post" action="/data">
 		<div class="form-group" style="text-align: center;">
 		<label>Username</label><br>
-		<input type="text" name="userName" id="userName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<input type="text" name="userName" id="userName" size="32">
 
 		<br>
 		<br>
@@ -62,13 +62,13 @@ form {
 		<br>
 
 		<label id = "email_L">E-mail</label><br>
-		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing"  size="32">
 
 
 		<br>
 		<br>
-		<input class="button" type="submit" name="submit" value="Create" onclick="checkEmail()" >
-
+		<input class="button" type="submit" name="submit" value="Create" >
+	</form>
 		<br>
 		<br>
 
@@ -80,7 +80,7 @@ form {
 
 
 		
-	</form>
+	
 	</div>
 
 	<script>
