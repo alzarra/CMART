@@ -2,13 +2,16 @@ var express    = require('express');
 var app        = express();
 var mysql      = require('mysql');
 var bodyParser = require('body-parser');
-
+var path = require('path');
+var userName = "";
+var password = "";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 //app.use(express.json());
 //app.use(express.urlencoded());
 //app.use(app.router);
-app.use(express.static('/public/'));
+
+//app.use(express.static(path.join(__dirname, "public")));
 
 
 var con = mysql.createConnection({
@@ -24,14 +27,18 @@ app.get('/',function(req,res){
   res.sendFile(__dirname + '/signup.html');
 })
 
-  app.post('/data',function(req,res){
- 
-    con.query("INSERT INTO 'mrTable'(userName,password) Values(?)",userName.toString(), password.toString(), function(err,result){
-      if(err) throw err;
-      console.log("Recorded worked");
-    });
-    res.send(userName,password);
+  app.post(path,function(req,res){
+ //userName = req.body.userName;
+ //password = req.body.password;
+ console.log(req.body);
+    //con.query("INSERT INTO 'mrTable'(userName,password) Values(?)",userName.toString(), password.toString(), function(err,result){
+     // console.log("Recorded worked");
+      //if(err) throw err;
+      
+    //});
+    //res.send(userName,password);
   });
+
 
 
 app.listen(3000,function(){
