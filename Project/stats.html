@@ -4,6 +4,71 @@
 		
 	<title>Montana Recycle - Statistics</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script language="javascript">
+			function add()
+			{
+				var material = document.getElementById("wgtmsr").value;
+				var amount = document.getElementById("wgtmsr2").value;
+				var inWhat = document.getElementById("wgtmsr3").value;
+
+				var num = 0;
+				var total = 0;
+
+				
+				
+				
+				
+				
+				if(amount == "")
+				{
+					window.alert("Please enter an amount.");
+					firstname.style.background = "#ff9696";
+					return false;
+				}
+				else
+				{
+					amount = parseInt(amount);
+					if(material == 'Plastic')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseInt(document.getElementById('c1r1').textContent);
+							total = num+amount;
+							document.getElementById('c1r1').textContent = "" + total;
+
+							num = parseInt(document.getElementById('c2r1').textContent);
+							total = num+ (amount*453.592);
+							document.getElementById('c2r1').textContent = "" + total;
+
+							num = parseInt(document.getElementById('c3r1').textContent);
+							total = num+ (amount*0.453592);
+							document.getElementById('c3r1').textContent = "" + total;
+						}
+
+							if(inWhat == 'g')
+						{
+							num = parseInt(document.getElementById('c1r1').textContent);
+							total = num+ (amount * 0.00220462);
+							document.getElementById('c1r1').textContent = "" + total;
+
+							num = parseInt(document.getElementById('c2r1').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r1').textContent = "" + total;
+
+							num = parseInt(document.getElementById('c3r1').textContent);
+							total = num+ (amount*0.001);
+							document.getElementById('c3r1').textContent = "" + total;
+						}
+					}
+					
+				}
+
+			}
+
+		</script>
+
+
 </head>
 <style>
 
@@ -39,8 +104,73 @@ li2{ text-align:right;}
         
             	<p1>Your Statistics</p>
     </div>
-    <div class="item2">
-    	In this page, you will be able to track your recycling records you've logged in.
+    <div class="item3">
+    	What are you recycling? 
+
+    	<select name="wgtmsr" id="wgtmsr">
+		  <option>Plastic</option>
+		  <option value="saab">Rubber</option>
+		  <option value="opel">Paper</option>
+		  <option value="audi">Electronics</option>
+		  <option value="audi">Steel</option>
+		  <option value="audi">Glass</option>
+		  <option value="audi">Cardboard</option>
+		  <option value="audi">Battries</option>
+		</select>
+
+		&nbsp;&nbsp;&nbsp;Amount?
+
+		<input type="text" name="amount" value="0" id="wgtmsr2">
+
+		&nbsp;&nbsp;&nbsp;In?
+
+		<select name="wgtmsr" id="wgtmsr3">
+		  <option>lbs</option>
+		  <option>g</option>
+		  <option>kg</option>
+		</select>
+
+		<input class="button" type="submit" name="submit" id = "wgtsm4"  value="ADD" onclick="add();">
+
+    </div>
+
+    <div class="item33" style="text-align: center";>
+    	<table class="blueTable" >
+<thead >
+<tr>
+<th>Material</th>
+<th>lbs</th>
+<th>grams</th>
+<th>Kilograms</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="4">
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td><b>Plastic</b>
+	</td><td><label id="c1r1">0</label></td><td><label id="c2r1">0</label></td><td><label id="c3r1">0</label></td></tr>
+<tr>
+<td><b>Rubber</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Paper</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Electronics</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Steel</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Glass</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Cardboard</b></td><td>0</td><td>0</td><td>0</td></tr>
+<tr>
+<td><b>Battries</b></td><td>0</td><td>0</td><td>0</td></tr>
+</tbody>
+</tr>
+</table>
 
     </div>
 </div>
