@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>map filter</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style type="text/css">
+	#map {
+  width: 500px;
+  height: 300px;
+}
+
+/* chk-btn CSS from
+http://stackoverflow.com/questions/30100978/how-to-make-a-check-button-hidden-checkbox-with-label-as-a-button-css-only
+*/
+
+input.chk-btn {
+  display: none;
+}
+input.chk-btn + label {
+  border: 1px solid grey;
+  background: ghoswhite;
+  padding: 5px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+ 
+}
+input.chk-btn:not(:checked) + label:hover {
+  box-shadow: 0px 1px 3px;
+  
+}
+input.chk-btn + label:active,
+input.chk-btn:checked + label {
+  box-shadow: 0px 0px 3px inset;
+  background: #8cc472;
+  
+}
+#map {
+  width: 80%;
+  /*height: 30%;*/
+  /*margin-top: 0%;
+  margin-left: 20%;*/
+
+}
+</style>
+<body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
+        async defer></script>
+<div id="buttons">
+  
+  <input type="checkbox" name="filter" id="shower" class='chk-btn'>
+  <label for='shower'>Shower</label>
+  
+  <input type="checkbox" name="filter" id="flush" class='chk-btn'>
+  <label for='flush'>Flush Toilet</label>
+  
+  <input type="checkbox" name="filter" id="vault" class='chk-btn'>
+  <label for='vault'>Vault Toilet</label>
+
+  <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
+  <label for='Plastic'>Plastic</label>
+  
+  <input type="checkbox" name="filter" id="Batteries" class='chk-btn'>
+  <label for='Batteries'>Batteries</label>
+
+  <input type="checkbox" name="filter" id="Metal" class='chk-btn'>
+  <label for='Metal'>Metal</label>
+
+  <input type="checkbox" name="filter" id="Cardboard" class='chk-btn'>
+  <label for='Cardboard'>Cardboard</label>
+
+  <input type="checkbox" name="filter" id="Paper" class='chk-btn'>
+  <label for='Paper'>Paper</label>
+
+  <input type="checkbox" name="filter" id="Glass" class='chk-btn'>
+  <label for='Glass'>Glass</label>
+
+  <input type="checkbox" name="filter" id="Plastic Bags/Film/Wrap" class='chk-btn'>
+  <label for='Plastic Bags/Film/Wrap'>Plastic Bags/Film/Wrap</label>
+
+  <input type="checkbox" name="filter" id="CFLs & Tubes" class='chk-btn'>
+  <label for='CFLs & Tubes'>CFLs & Tubes</label>
+
+  <input type="checkbox" name="filter" id="Wood & Lawn Waste/Kitchen Compost" class='chk-btn'>
+  <label for='Wood & Lawn Waste/Kitchen Compost'>Wood & Lawn Waste/Kitchen Compost</label>
+
+  <input type="checkbox" name="filter" id="Cooking Oil" class='chk-btn'>
+  <label for='Cooking Oil'>Cooking Oil</label>
+
+  <input type="checkbox" name="filter" id="Electronics" class='chk-btn'>
+  <label for='Electronics'>Electronics</label>
+
+  <input type="checkbox" name="filter" id="Automotive Fluids & Waste Water" class='chk-btn'>
+  <label for='Automotive Fluids & Waste Water'>Automotive Fluids & Waste Water</label>
+
+  <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
+  <label for='Tires'>Tires</label>
+
+  <input type="checkbox" name="filter" id="Vehicles" class='chk-btn'>
+  <label for='Vehicles'>Vehicles</label>
+  <br>
+</div>
+<br>
+<div id="map"></div>
+<br>
+<div id="campground_info"></div>
+
+<script type="text/javascript">
+	var map
+var markers = []
+
+// start out with filter features set to false, so no filtering happens by default
+var filters = {Batteries:false,	Metal:false, Cardboard:false, Paper:false, Glass:false, Plastic:false, Bags_Film_Wrap:false, CFLs_and_Tubes:false,	Wood_and_Lawn_Waste__Kitchen_Compost:false, Cooking_Oil:false, Electronics:false, Automotive_Fluids_and_Waste_Water:false, Tires:false, Vehicles:false}
+
+$(function () {
+    $('input[name=filter]').change(function (e) {
+     map_filter(this.id);
+      filter_markers()
+  });
+
+
+})
+
+var get_set_options = function() {
+  ret_array = []
+  for (option in filters) {
+    if (filters[option]) {
+      ret_array.push(option)
+    }
+  }
+  return ret_array;
+}
+
+var filter_markers = function() {  
+  set_filters = get_set_options()
+  
+  // for each marker, check to see if all required options are set
+  for (i = 0; i < markers.length; i++) {
+    marker = markers[i];
+
+    // start the filter check assuming the marker will be displayed
+    // if any of the required features are missing, set 'keep' to false
+    // to discard this marker
+    keep=true
+    for (opt=0; opt<set_filters.length; opt++) {
+      if (!marker.properties[set_filters[opt]]) {
+        keep = false;
+      }
+    }
+    marker.setVisible(keep)
+  }
+}
+
+var map_filter = function(id_val) {
+   if (filters[id_val]) 
+      filters[id_val] = false
+   else
+      filters[id_val] = true
+}
+
+
+// after the geojson is loaded, iterate through the map data to create markers
+// and add the pop up (info) windows
+function loadMarkers() {
+  console.log('creating markers')
+  var infoWindow = new google.maps.InfoWindow()
+  geojson_url = 'https://raw.githubusercontent.com/alzarra/Montana-Recycle/master/RB.geojson'
+  $.getJSON(geojson_url, function(result) {
+      // Post select to url.
+      data = result['features']
+      $.each(data, function(key, val) {
+        var point = new google.maps.LatLng(
+                parseFloat(val['geometry']['coordinates'][1]),
+                parseFloat(val['geometry']['coordinates'][0]));
+        var titleText = val['properties']['Recycler']
+        var descriptionText = val['properties']['description']
+        var marker = new google.maps.Marker({
+          position: point,
+          title: titleText,
+          map: map,
+          properties: val['properties']
+         });
+
+        var markerInfo = "<div><h3>" + titleText + "</h3>Amenities: " + descriptionText + "</div>"
+
+
+        marker.addListener('click', function() {
+           $('#campground_info').html(markerInfo)
+        });
+        markers.push(marker)
+        
+      });
+  });
+}
+
+function initMap() {
+    map_options = {
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.HYBRID,
+      center: {lat: 42.9456, lng: -122.2}
+    }
+    
+    map_document = document.getElementById('map')
+    map = new google.maps.Map(map_document,map_options);
+    loadMarkers()
+ 
+}
+
+//google.maps.event.addDomListener(window, 'load', initMap);
+</script>
+</body>
+</html>
