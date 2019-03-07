@@ -29,6 +29,7 @@
 				else
 				{
 					amount = parseInt(amount);
+
 					if(material == 'Plastic')
 					{
 						if(inWhat == 'lbs')
@@ -54,6 +55,190 @@
 
 						}
 					}
+
+					if(material == 'Rubber')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r2').textContent);
+							total = num+amount;
+							document.getElementById('c1r2').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r2').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r2').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r2').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r2').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r2').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r2').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Paper')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r3').textContent);
+							total = num+amount;
+							document.getElementById('c1r3').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r3').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r3').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r3').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r3').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r3').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r3').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Electronics')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r4').textContent);
+							total = num+amount;
+							document.getElementById('c1r4').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r4').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r4').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r4').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r4').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r4').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r4').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Steel')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r5').textContent);
+							total = num+amount;
+							document.getElementById('c1r5').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r5').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r5').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r5').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r5').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r5').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r5').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Glass')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r6').textContent);
+							total = num+amount;
+							document.getElementById('c1r6').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r6').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r6').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r6').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r6').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r6').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r6').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Cardboard')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r7').textContent);
+							total = num+amount;
+							document.getElementById('c1r7').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r7').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r7').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r7').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r7').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r7').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r7').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Battries')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r8').textContent);
+							total = num+amount;
+							document.getElementById('c1r8').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r8').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r8').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r8').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r8').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r8').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r8').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+
 					
 				}
 
@@ -102,13 +287,13 @@ li2{ text-align:right;}
 
     	<select name="wgtmsr" id="wgtmsr">
 		  <option>Plastic</option>
-		  <option value="saab">Rubber</option>
-		  <option value="opel">Paper</option>
-		  <option value="audi">Electronics</option>
-		  <option value="audi">Steel</option>
-		  <option value="audi">Glass</option>
-		  <option value="audi">Cardboard</option>
-		  <option value="audi">Battries</option>
+		  <option >Rubber</option>
+		  <option>Paper</option>
+		  <option>Electronics</option>
+		  <option>Steel</option>
+		  <option>Glass</option>
+		  <option>Cardboard</option>
+		  <option>Battries</option>
 		</select>
 
 		&nbsp;&nbsp;&nbsp;Amount?
@@ -150,44 +335,44 @@ li2{ text-align:right;}
 
 <tr>
 <td><b>Rubber</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r2">0.00</label></td>
+	<td><label id="c2r2">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Paper</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r3">0.00</label></td>
+	<td><label id="c2r3">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Electronics</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r4">0.00</label></td>
+	<td><label id="c2r4">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Steel</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r5">0.00</label></td>
+	<td><label id="c2r5">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Glass</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r6">0.00</label></td>
+	<td><label id="c2r6">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Cardboard</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r7">0.00</label></td>
+	<td><label id="c2r7">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Battries</b></td>
-	<td>0.00</td>
-	<td>0.00</td>
+	<td><label id="c1r8">0.00</label></td>
+	<td><label id="c2r8">0.00</label></td>
 </tr>
 
 </tbody>
