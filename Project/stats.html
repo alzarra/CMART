@@ -106,6 +106,11 @@
 							document.getElementById('c2r3').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('c1r3').textContent);
+						num = parseFloat(document.getElementById('c5r1').textContent);
+						total = num + (amount/150);
+						document.getElementById('c5r1').textContent = "" + total.toFixed(2);
 					}
 
 					if(material == 'Electronics')
@@ -132,6 +137,11 @@
 							document.getElementById('c2r4').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('c2r4').textContent);
+						num = parseFloat(document.getElementById('c5r3').textContent);
+						total = num + (amount/14);
+						document.getElementById('c5r3').textContent = "" + total.toFixed(2) + " (g)";
 					}
 
 					if(material == 'Steel')
@@ -210,6 +220,10 @@
 							document.getElementById('c2r7').textContent = "" + total.toFixed(2);
 
 						}
+						amount = parseFloat(document.getElementById('c2r7').textContent);
+						num = parseFloat(document.getElementById('c5r1').textContent);
+						total = num + (amount/58.8);
+						document.getElementById('c5r1').textContent = "" + total.toFixed(2);
 					}
 
 					if(material == 'Battries')
@@ -234,6 +248,58 @@
 							num = parseFloat(document.getElementById('c2r8').textContent);
 							total = num+ (amount);
 							document.getElementById('c2r8').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Wood')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r9').textContent);
+							total = num+amount;
+							document.getElementById('c1r9').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r9').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r9').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r9').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r9').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r9').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r9').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Cooking Oil')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('c1r10').textContent);
+							total = num+amount;
+							document.getElementById('c1r10').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r10').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r10').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('c1r10').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r10').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('c2r10').textContent);
+							total = num+ (amount);
+							document.getElementById('c2r10').textContent = "" + total.toFixed(2);
 
 						}
 					}
@@ -294,6 +360,8 @@ li2{ text-align:right;}
 		  <option>Glass</option>
 		  <option>Cardboard</option>
 		  <option>Battries</option>
+		  <option>Wood</option>
+		  <option>Cooking Oil</option>
 		</select>
 
 		&nbsp;&nbsp;&nbsp;Amount?
@@ -318,6 +386,8 @@ li2{ text-align:right;}
 <th>Material</th>
 <th>lbs</th>
 <th>Kilograms</th>
+<th>Recourse Savings</th>
+<th>Amount</th>
 </tr>
 </thead>
 <tfoot>
@@ -331,18 +401,25 @@ li2{ text-align:right;}
 <td><b>Plastic</b></td>
 	<td><label id="c1r1">0.00</label></td>
 	<td><label id="c2r1">0.00</label></td>
+	<td><label id="c3r1"><b>Trees</b></label></td>
+	<td><label id="c5r1">0.00</label></td>
+
 </tr>
 
 <tr>
 <td><b>Rubber</b></td>
 	<td><label id="c1r2">0.00</label></td>
 	<td><label id="c2r2">0.00</label></td>
+	<td><label id="c3r2"><b>Oil</b></label></td>
+	<td><label id="c5r2">0.00</label></td>
 </tr>
 
 <tr>
 <td><b>Paper</b></td>
 	<td><label id="c1r3">0.00</label></td>
 	<td><label id="c2r3">0.00</label></td>
+	<td><label id="c3r3"><b>Gold</b></label></td>
+	<td><label id="c5r3">0.00(g)</label></td>
 </tr>
 
 <tr>
@@ -373,6 +450,18 @@ li2{ text-align:right;}
 <td><b>Battries</b></td>
 	<td><label id="c1r8">0.00</label></td>
 	<td><label id="c2r8">0.00</label></td>
+</tr>
+
+<tr>
+<td><b>Wood</b></td>
+	<td><label id="c1r9">0.00</label></td>
+	<td><label id="c2r9">0.00</label></td>
+</tr>
+
+<tr>
+<td><b>Cooking Oil</b></td>
+	<td><label id="c1r10">0.00</label></td>
+	<td><label id="c2r10">0.00</label></td>
 </tr>
 
 </tbody>

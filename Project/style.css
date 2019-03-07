@@ -226,7 +226,6 @@ li2 a:hover {
   //border-radius: 15px 42px;
   border: 2px solid rgb(244, 160, 36);
   background-color: white;
-  height: 80%;
   text-align: justify;
   margin-top: 10px
   }
@@ -442,16 +441,7 @@ table.blueTable thead th:first-child {
   border-left: none;
 }
 
-table.blueTable tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #FFFFFF;
-  background: #D0E4F5;
-  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-  border-top: 2px solid #444444;
-}
+
 
 table.blueTable tfoot td {
   font-size: 14px;
