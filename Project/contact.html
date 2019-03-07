@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html>
+
+
+
+<!-- Website Title -->
 <head>
 	<title>Montana Recycle - Contact Us</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	
+	
+<!-- Style Sheet -->
 <style type="text/css">
-		
-
-}
-h3 {
+h3 
+{
 	color : red;
 	margin-left: 20px;
 }
 
-form {
+form 
+{
 	margin-left: 10%;
 	font-size: 20px;
 }
-</style>
 
+h10
+{
+text-align: center;
+font-size: 50px;
+line-height: 5px;
+}
+</style>
+<!-- Style Sheet End -->
+
+
+
+<!-- Script for Emails -->
 		<script language="javascript">
 			function checkFields()
 			{
+				//Attributes:
 				var email = document.getElementById("email");
 				var firstname = document.getElementById("firstName");
 				var lastname = document.getElementById("lastName");
@@ -28,10 +47,7 @@ form {
 				var sub = document.getElementById("sub");
 				var count = 0;
 				
-				
-				
-				
-				
+				//First Name Value Checking
 				if(firstname.value == "")
 				{
 					window.alert("Please enter your first name.");
@@ -43,9 +59,7 @@ form {
 					count = count+1;
 				}
 				
-				
-				
-				
+				//Last Name Value Checking
 				if(lastname.value == "")
 				{
 					window.alert("Please enter your last name.");
@@ -57,8 +71,7 @@ form {
 					count = count+1;
 				}
 				
-				
-				
+				//Email Value Checking
 				if(email.value == "")
 				{
 					window.alert("Please enter your email.");
@@ -70,9 +83,7 @@ form {
 					count = count+1;
 				}
 				
-				
-				
-				
+				//Comment Value Checking
 				if(comment.value == "")
 				{
 					window.alert("Please enter a comment.");
@@ -84,11 +95,7 @@ form {
 					count = count+1;
 				}
 
-				
-				
-				
-				
-				
+				//Final Message
 				if(count >= 4)
 				{
 					//window.alert("Thank you for sending us a message!");
@@ -105,7 +112,6 @@ form {
 
 
 					sub.click();
-
 				}
 				else
 				{
@@ -121,90 +127,131 @@ form {
 			{
 				control.style.background = "#ffffff";
 			}
-		</script>
+		</script>					<!-- Script for Emails End -->
+</head>								<!-- Website Title End-->
 
 
 
-
-</head>
+<!-- Webpage Body Start -->
 <body>
 
-<!-- logo -->
-<img id="logo" src='05_DEQLogo_TransparentBG_Web.png' alt='logo'>
-<img src='MR.png' alt='logo' style="width:250px; float:right;">
 
 
-<!-- nav bar -->
+
+<!-- Logos -->
+<img src='pictures/MR.png' alt='logo' style="width:250px;">
+<img src='pictures/05_DEQLogo_TransparentBG_Web.png' alt='logo' style="float:right;">	<!-- Logos End -->
+
+
+
+
+<!-- Navigation Bar -->
 	<ul>
-		<li><a clas = 'active' href = "index.html">Home</a></li>
-		<li><a href = 'map.html' > Map</a></li>
-		<li><a href = 'FAQ.html' > FAQ </a></li>
-		<li><a href = 'contact.html' > Contact Us</a></li>
-		<li><a href = 'about.html' > About Us</a></li>
-        <li><a href = 'stats.html' > See your Recycling Statistics</a></li>
-        <li2><a href = 'signup.html' > Login/Sign Up</a></li>
-	</ul>
-	
-	<div class="grid-container">
-    <div class="item1">
+		<li><a clas = 'active' 			href = "index.html"	>Home	</a></li>
+		<li><a href = 'map.html' 		> Map						</a></li>
+		<li><a href = 'FAQ.html' 		> FAQ 						</a></li>
+		<li><a href = 'contact.html' 	> Contact Us				</a></li>
+		<li><a href = 'about.html' 		> About Us					</a></li>
+        <li><a href = 'stats.html' 		> Recycling Statistics		</a></li>
+        <li2><a href = 'signup.html' 	> Login/Sign Up				</a></li>
+	</ul>						<!-- Navigation Bar  End-->
+
+
+
+<!-- Page Title -->
+	<div class = "grid-containerC0" style = "height:95%;">
+    <div class="item1" style="margin-top: 20px">
             
-              <p1>Contact Us</p>
-    </div>
-    <div class="item2">
+              <h10>Contact Us</h10>
+    </div>						<!-- Page Title End-->
 
 
+
+<!-- Body 1 Start -->	
+<div class="itemC0">	
+
+	
+<!-- <div>  DO WE NEED THIS?-->
+
+
+
+<!-- Posting to Gmail -->
+<div>
+<form class="gform" style = "padding-left:-5px" method="POST" data-email="mohammad.alsaad93@gmail.com"
+action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
+			
+
+
+	<!-- Textfields Style -->
+	<div class="form-group" style="text-align: center";>
+	
+	
+	
+	<!-- First Name Field -->
+	<label id = "firstName_L"	>First Name:	</label>
+	<br>
+	<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  
+	onblur="makeWhite(this);" size="50">
+	
+	
+	
+	<!-- DO WE NEED THIS?-->
 	<div>
 	<form class="gform" method="POST" data-email="mohammad.alsaad93@gmail.com"
-	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
-		<div class="form-group" style="text-align: center";>
-		<label id = "firstName_L">First Name:</label><br>
-		<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec"  style="text-align: center">
 
-		<div>
-			<form class="gform" method="POST" data-email="mohammad.alsaad93@gmail.com"
-			action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec"  style="text-align: center">
+	
+	
+	<!-- Last Name Field -->
+	<label id = "lastName_L"	>Last Name:		</label>
+	<br>
+	<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  
+	onblur="makeWhite(this);" size="50">
+	
+	<br>
+	<br>
 
+	<!-- Email Field -->
+	<label id = "email_L"		>E-mail:		</label>
+	<br>
+	<input type="text" id = "email" name="emil" placeholder="ExampleEmail123@SpecificGroup.com" 
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" size="64">
 
-		<label id = "lastName_L">Last Name:</label><br>
-		<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+	<br>
+	<br>
+	<br>
+	
+	<!-- Submit Button -->
+	<input class="button" id="sub" type="submit" name="submit" value="Submit" 
+	style="display:none;" onclick="checkFields();">
+	
+	
+	
+	<!-- Message Field -->
+	<label id = "comment_L" 	>Message		</label>
+	<br>
+	<textarea name="comment" id ="comment" placeholder="Write your message here!" 
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
 
-					<br>
-					<br>
-
-
-		<label id = "email_L">E-mail:</label><br>
-		<input type="text" id = "email" name="emil" placeholder="exmple@something.thing" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
-
-					<br>
-					<br>
-
-
-					<br>
-					<br>
-
-					<input class="button" id="sub" type="submit" name="submit" value="Submit" style="display:none;" onclick="checkFields();">
-					<label id = "comment_L" >Message</label><br>
-					<textarea name="comment" id ="comment" placeholder=""  onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
-
-					<br>
-					<br>
-					
-				</div>
-
-
-
-				<div style="display:none" class="thankyou_message" >
-		 			<!-- You can customize the thankyou message by editing the code below -->
-		 			<h2 style="text-align: center";><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
-				</div>
-			
-			</form>
-		</div>
-		<div style="text-align: center";>
-			<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();">
-		</div>
-		
+	<br>
+	<br>
+	
 	</div>
-	<script data-cfasync="false" type="text/javascript" src="email.js"></script>
+
+
+
+			<div style="display:none" class="thankyou_message" >
+				<!-- You can customize the thankyou message by editing the code below -->
+				<h2 style="text-align: center";><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
+			</div>
+		
+		</form>
+	</div>
+	<div style="text-align: center";>
+		<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();">
+	</div>
+	
+</div>
+<script data-cfasync="false" type="text/javascript" src="email.js"></script>
 </body>
 </html>
