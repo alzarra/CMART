@@ -47,22 +47,22 @@ form {
 	<form class="my-form">
 		<div class="form-group" style="text-align: center;">
 		<label>Username</label><br>
-		<input type="text" name="userName" id="userName" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<input type="text" name="userName" id="userName"  size="32">
 
 		<br>
 		<br>
 
 		<label>Password</label><br>
-		<input type="password" name="password"  id="myInput" onfocus="revertBack(this);"  onblur="makeWhite(this);" size="32">
+		<input type="password" name="password"  id="myInput"size="32">
 		<br>
 		<input type="checkbox" onclick="myFunction()">Show Password
 
 
 		<br>
 		<br>
-		<input class="button" type="submit" name="submit" value="Login" onclick="checkEmail()">
 
-
+		
+		<input class="button" type="button" name="login" value="Login" onClick="location.href = 'stats.html'">
 
 		
 	</form>
@@ -77,6 +77,7 @@ form {
 		    x.type = "password";
 		  }
 		}
+
 	</script>
 </body>
 </html>
