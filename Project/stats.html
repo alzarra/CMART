@@ -33,32 +33,25 @@
 					{
 						if(inWhat == 'lbs')
 						{
-							num = parseInt(document.getElementById('c1r1').textContent);
+							num = parseFloat(document.getElementById('c1r1').textContent);
 							total = num+amount;
-							document.getElementById('c1r1').textContent = "" + total;
+							document.getElementById('c1r1').textContent = "" + total.toFixed(2);
 
-							num = parseInt(document.getElementById('c2r1').textContent);
-							total = num+ (amount*453.592);
-							document.getElementById('c2r1').textContent = "" + total;
-
-							num = parseInt(document.getElementById('c3r1').textContent);
-							total = num+ (amount*0.453592);
-							document.getElementById('c3r1').textContent = "" + total;
+							num = parseFloat(document.getElementById('c2r1').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('c2r1').textContent = "" + total.toFixed(2);
 						}
 
-							if(inWhat == 'g')
+							if(inWhat == 'kg')
 						{
-							num = parseInt(document.getElementById('c1r1').textContent);
-							total = num+ (amount * 0.00220462);
-							document.getElementById('c1r1').textContent = "" + total;
+							num = parseFloat(document.getElementById('c1r1').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('c1r1').textContent = "" + total.toFixed(2);
 
-							num = parseInt(document.getElementById('c2r1').textContent);
+							num = parseFloat(document.getElementById('c2r1').textContent);
 							total = num+ (amount);
-							document.getElementById('c2r1').textContent = "" + total;
+							document.getElementById('c2r1').textContent = "" + total.toFixed(2);
 
-							num = parseInt(document.getElementById('c3r1').textContent);
-							total = num+ (amount*0.001);
-							document.getElementById('c3r1').textContent = "" + total;
 						}
 					}
 					
@@ -126,7 +119,6 @@ li2{ text-align:right;}
 
 		<select name="wgtmsr" id="wgtmsr3">
 		  <option>lbs</option>
-		  <option>g</option>
 		  <option>kg</option>
 		</select>
 
@@ -140,7 +132,6 @@ li2{ text-align:right;}
 <tr>
 <th>Material</th>
 <th>lbs</th>
-<th>grams</th>
 <th>Kilograms</th>
 </tr>
 </thead>
@@ -152,22 +143,53 @@ li2{ text-align:right;}
 </tfoot>
 <tbody>
 <tr>
-<td><b>Plastic</b>
-	</td><td><label id="c1r1">0</label></td><td><label id="c2r1">0</label></td><td><label id="c3r1">0</label></td></tr>
+<td><b>Plastic</b></td>
+	<td><label id="c1r1">0.00</label></td>
+	<td><label id="c2r1">0.00</label></td>
+</tr>
+
 <tr>
-<td><b>Rubber</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Rubber</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Paper</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Paper</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Electronics</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Electronics</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Steel</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Steel</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Glass</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Glass</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Cardboard</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Cardboard</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 <tr>
-<td><b>Battries</b></td><td>0</td><td>0</td><td>0</td></tr>
+<td><b>Battries</b></td>
+	<td>0.00</td>
+	<td>0.00</td>
+</tr>
+
 </tbody>
 </tr>
 </table>
