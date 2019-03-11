@@ -105,8 +105,11 @@ input.chk-btn:checked + label {
 <br>
 <div id="campground_info"></div>
 
+
 <script type="text/javascript">
-	var map
+
+
+var map
 var markers = []
 
 // start out with filter features set to false, so no filtering happens by default
@@ -174,6 +177,8 @@ function loadMarkers() {
                 parseFloat(val['geometry']['coordinates'][0]));
         var titleText = val['properties']['Recycler']
         var descriptionText = val['properties']['description']
+        var websiteText = val['properties']['Link']
+        var noteText = val['properties']['Note']
         var marker = new google.maps.Marker({
           position: point,
           title: titleText,
@@ -181,7 +186,12 @@ function loadMarkers() {
           properties: val['properties']
          });
 
-        var markerInfo = "<div><h3>" + titleText + "</h3>Amenities: " + descriptionText + "</div>"
+        //info box 
+        var markerInfo = "<div><h3>" + titleText 
+                      + "</h3>Recycling: " + descriptionText 
+                      + "<br></h3>Website: "+ websiteText 
+                      + "<br></h3>Note: "+ noteText
+                      +"</div>"
 
 
         marker.addListener('click', function() {
@@ -197,7 +207,7 @@ function initMap() {
     map_options = {
       zoom: 10,
       mapTypeId: google.maps.MapTypeId.HYBRID,
-      center: {lat: 42.9456, lng: -122.2}
+      center: {lat: 46.8797, lng: -110.3626},
     }
     
     map_document = document.getElementById('map')
