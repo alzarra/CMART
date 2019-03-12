@@ -59,15 +59,6 @@ input.chk-btn:checked + label {
 
   <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
   <label for='Plastic'>Plastic</label>
-  
-  <input type="checkbox" name="filter" id="Batteries" class='chk-btn'>
-  <label for='Batteries'>Batteries</label>
-
-  <input type="checkbox" name="filter" id="Metal" class='chk-btn'>
-  <label for='Metal'>Metal</label>
-
-  <input type="checkbox" name="filter" id="Cardboard" class='chk-btn'>
-  <label for='Cardboard'>Cardboard</label>
 
   <input type="checkbox" name="filter" id="Paper" class='chk-btn'>
   <label for='Paper'>Paper</label>
@@ -75,29 +66,7 @@ input.chk-btn:checked + label {
   <input type="checkbox" name="filter" id="Glass" class='chk-btn'>
   <label for='Glass'>Glass</label>
 
-  <input type="checkbox" name="filter" id="Plastic Bags/Film/Wrap" class='chk-btn'>
-  <label for='Plastic Bags/Film/Wrap'>Plastic Bags/Film/Wrap</label>
-
-  <input type="checkbox" name="filter" id="CFLs & Tubes" class='chk-btn'>
-  <label for='CFLs & Tubes'>CFLs & Tubes</label>
-
-  <input type="checkbox" name="filter" id="Wood & Lawn Waste/Kitchen Compost" class='chk-btn'>
-  <label for='Wood & Lawn Waste/Kitchen Compost'>Wood & Lawn Waste/Kitchen Compost</label>
-
-  <input type="checkbox" name="filter" id="Cooking Oil" class='chk-btn'>
-  <label for='Cooking Oil'>Cooking Oil</label>
-
-  <input type="checkbox" name="filter" id="Electronics" class='chk-btn'>
-  <label for='Electronics'>Electronics</label>
-
-  <input type="checkbox" name="filter" id="Automotive Fluids & Waste Water" class='chk-btn'>
-  <label for='Automotive Fluids & Waste Water'>Automotive Fluids & Waste Water</label>
-
-  <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
-  <label for='Tires'>Tires</label>
-
-  <input type="checkbox" name="filter" id="Vehicles" class='chk-btn'>
-  <label for='Vehicles'>Vehicles</label>
+  
   <br>
 </div>
 <br>
@@ -113,7 +82,7 @@ var map
 var markers = []
 
 // start out with filter features set to false, so no filtering happens by default
-var filters = {Batteries:false,	Metal:false, Cardboard:false, Paper:false, Glass:false, Plastic:false, Plastic_Bags_Film_Wrap:false, CFLs_and_Tubes:false,	Wood_and_Lawn_Waste__Kitchen_Compost:false, Cooking_Oil:false, Electronics:false, Automotive_Fluids_and_Waste_Water:false, Tires:false, Vehicles:false}
+var filters = {Paper:false, Glass:false, Plastic:false}
 
 $(function () {
     $('input[name=filter]').change(function (e) {
@@ -167,7 +136,7 @@ var map_filter = function(id_val) {
 function loadMarkers() {
   console.log('creating markers')
   var infoWindow = new google.maps.InfoWindow()
-  geojson_url = 'https://raw.githubusercontent.com/alzarra/Montana-Recycle/master/RB.geojson'
+  geojson_url = 'https://raw.githubusercontent.com/alzarra/Montana-Recycle/master/miniRB.geojson'
   $.getJSON(geojson_url, function(result) {
       // Post select to url.
       data = result['features']
