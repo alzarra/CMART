@@ -2910,7 +2910,7 @@
     "properties": {
     "marker-size":"small",
     "Town":"Hamilton",
-    "Recycler":"Albertsonï¿½s",
+    "Recycler":"Albertson’s",
     "Batteries":"false",
     "Metal":"false",
     "Cardboard":"false",
@@ -5839,7 +5839,7 @@
     "properties": {
     "marker-size":"small",
     "Town":"Stanford",
-    "Recycler":"Kï¿½s Supermarket",
+    "Recycler":"K’s Supermarket",
     "Batteries":"false",
     "Metal":"true",
     "Cardboard":"true",
