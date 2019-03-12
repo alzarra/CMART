@@ -614,7 +614,7 @@
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ 108.582641,45.757961 ]
+       "coordinates":  [ -108.582641,45.757961 ]
     },
     "properties": {
     "marker-size":"small",

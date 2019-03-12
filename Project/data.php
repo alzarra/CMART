@@ -17,15 +17,18 @@ if ($conn->connect_error) {
 } 
 
 //$sql = "INSERT INTO mrTable (user, password)
-//VALUES ('John', 'Doe')";
+//VALUES ('John', 'Doe')"; testing database to print out hard coded value
 
 $sql = "INSERT INTO mrTable (user,password)
  Values('".$_POST["user"]."','".$_POST["password"]."')";
 
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
+ //   echo  Values('".$_POST["user"]."','".$_POST["password"]."')"; printing out ne data from database
+
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
+    
 }
 
 $conn->close();
