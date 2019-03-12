@@ -2910,7 +2910,7 @@
     "properties": {
     "marker-size":"small",
     "Town":"Hamilton",
-    "Recycler":"Albertson’s",
+    "Recycler":"Albertsonï¿½s",
     "Batteries":"false",
     "Metal":"false",
     "Cardboard":"false",
@@ -5839,7 +5839,7 @@
     "properties": {
     "marker-size":"small",
     "Town":"Stanford",
-    "Recycler":"K’s Supermarket",
+    "Recycler":"Kï¿½s Supermarket",
     "Batteries":"false",
     "Metal":"true",
     "Cardboard":"true",
@@ -6409,7 +6409,6 @@
     "Note":"DEQ",
     "Link":"http://www.deq.mt.gov/land/junkvehicles/contacts"
     }
-  },
+  }
 ]
-}
 }
