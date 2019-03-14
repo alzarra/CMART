@@ -177,7 +177,7 @@ line-height: 5px;
 
 <!-- Posting to Gmail -->
 <div>
-<form class="gform" style = "padding-left:-5px" method="POST" data-email="mohammad.alsaad93@gmail.com"
+<form class="gform" style = "padding-right:10%" method="POST" data-email="mohammad.alsaad93@gmail.com"
 action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
 			
 
@@ -188,34 +188,28 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 	
 	
 	<!-- First Name Field -->
-	<label id = "firstName_L"	>First Name:	</label>
+	<label id = "firstName_L"	>First Name	</label>
 	<br>
 	<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  
-	onblur="makeWhite(this);" size="50">
-	
-	
-	
-	<!-- DO WE NEED THIS?-->
-	<div>
-	<form class="gform" method="POST" data-email="mohammad.alsaad93@gmail.com"
-	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec"  style="text-align: center">
-
+	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
+	<br>
 	
 	
 	<!-- Last Name Field -->
-	<label id = "lastName_L"	>Last Name:		</label>
+	<br>
+	<label id = "lastName_L"	>Last Name		</label>
 	<br>
 	<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  
-	onblur="makeWhite(this);" size="50">
+	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
 	
 	<br>
 	<br>
 
 	<!-- Email Field -->
-	<label id = "email_L"		>E-mail:		</label>
+	<label id = "email_L"		>E-mail		</label>
 	<br>
-	<input type="text" id = "email" name="emil" placeholder="ExampleEmail123@SpecificGroup.com" 
-	onfocus="revertBack(this);"  onblur="makeWhite(this);" size="64">
+	<input type="text" id = "email" name="emil" placeholder="" 
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
 
 	<br>
 	<br>
@@ -223,7 +217,7 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 	
 	<!-- Submit Button -->
 	<input class="button" id="sub" type="submit" name="submit" value="Submit" 
-	style="display:none;" onclick="checkFields();">
+	style="display:none;" onclick="checkFields();" >
 	
 	
 	
@@ -231,7 +225,7 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 	<label id = "comment_L" 	>Message		</label>
 	<br>
 	<textarea name="comment" id ="comment" placeholder="Write your message here!" 
-	onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100"></textarea>
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100" ></textarea>
 
 	<br>
 	<br>
@@ -248,7 +242,7 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 		</form>
 	</div>
 	<div style="text-align: center";>
-		<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();">
+		<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();" style="margin-right: 67px;">
 	</div>
 	
 </div>
