@@ -54,6 +54,12 @@
 							document.getElementById('c2r1').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('c1r1').textContent);
+						num = parseFloat(document.getElementById('c5r2').textContent);
+						total = num + (amount/1083);
+						document.getElementById('c5r2').textContent = "" + total.toFixed(2) + " barrel(s)";
+
 					}
 
 					if(material == 'Rubber')
@@ -396,7 +402,7 @@ li2{ text-align:right;}
 	<td><label id="c1r1">0.00</label></td>
 	<td><label id="c2r1">0.00</label></td>
 	<td><label id="c3r1"><b>Trees</b></label></td>
-	<td><label id="c5r1">0.00</label></td>
+	<td><label id="c5r1">0.00 tree(s)</label></td>
 
 </tr>
 
@@ -404,16 +410,15 @@ li2{ text-align:right;}
 <td><b>Paper</b></td>
 	<td><label id="c1r3">0.00</label></td>
 	<td><label id="c2r3">0.00</label></td>
-	<td><label id="c3r3"><b>Gold</b></label></td>
-	<td><label id="c5r3">0.00(g)</label></td>
+	<td><label id="c3r2"><b>Oil</b></label></td>
+	<td><label id="c5r2">0.00 barrel(s)</label></td>
 </tr>
 
 <tr>
 <td><b>Glass</b></td>
 	<td><label id="c1r6">0.00</label></td>
 	<td><label id="c2r6">0.00</label></td>
-	<td><label id="c3r2"><b>Oil</b></label></td>
-	<td><label id="c5r2">0.00</label></td>
+
 </tr>
 
 
