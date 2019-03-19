@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Montana Recycle - Map</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -144,64 +145,169 @@ function closeNav() {
 
 <div id="map"></div>
 
-
  <script>
 
+  var filters = {Paper:false, Glass:false, Plastic:false, Batteries:false, Metal:false, Carboard:false, Plastic_Bags_Film_Wrap:false, CFLs_and_Tubes:false, Wood_and_Lawn_Waste_Kitchen_Compost:false, Cooking_Oil:false, Electronics:false, Automotive_Fluids_and_Waste_Water: false, Tires:false, Vehicles:false}
+
+  ///filter function////
+  $(function () {
+    $('input[name=filter]').change(function (e) {
+      console.log(this.id)
+     map_filter(this.id);
+      filter_markers()
+  });
+
+
+})
+
+var get_set_options = function() {
+  ret_array = []
+  for (option in filters) {
+    if (filters[option]) {
+      ret_array.push(option)
+    }
+  }
+  return ret_array;
+}
+
+var filter_markers = function() {  
+  set_filters = get_set_options()
+  
+  // for each marker, check to see if all required options are set
+  for (i = 0; i < markers.length; i++) {
+    marker = markers[i];
+
+    // start the filter check assuming the marker will be displayed
+    // if any of the required features are missing, set 'keep' to false
+    // to discard this marker
+    keep=true
+    for (opt=0; opt<set_filters.length; opt++) {
+      //console.log(marker.properties[set_filters[opt]])
+      if (marker.properties[set_filters[opt]]) {
+        //console.log("hi there")
+        keep = false;
+      }
+    }
+    marker.setVisible(keep)
+  }
+}
+
+var map_filter = function(id_val) {
+  //console.log(filters[id_val])
+   if (filters[id_val]) 
+      filters[id_val] = false
+   else
+      filters[id_val] = true
+}
+
+
+// after the geojson is loaded, iterate through the map data to create markers
+// and add the pop up (info) windows
+function loadMarkers() {
+  console.log('creating markers')
+  var infoWindow = new google.maps.InfoWindow()
+  geojson_url = 'https://raw.githubusercontent.com/alzarra/Montana-Recycle/master/RB.geojson'
+  $.getJSON(geojson_url, function(result) {
+      // Post select to url.
+      data = result['features']
+      $.each(data, function(key, val) {
+        var point = new google.maps.LatLng(
+                parseFloat(val['geometry']['coordinates'][1]),
+                parseFloat(val['geometry']['coordinates'][0]));
+        var titleText = val['properties']['Recycler']
+        //recyling materiales 
+        var descriptionText = val['properties']['Description']
+        
+        var websiteText = val['properties']['Link']
+        var noteText = val['properties']['Note']
+        var townText = val['properties']['Town']
+        var marker = new google.maps.Marker({
+          position: point,
+          title: titleText,
+          map: map,
+          properties: val['properties']
+         });
+
+        //info box 
+        var markerInfo = "<div><h3>" + titleText
+                      + "</h3>Town: " +  townText
+                      + "<br></h3>Recycling: " + descriptionText   
+                      + "<br></h3>Website: "+ websiteText
+                      + "<br></h3>Note: "+ noteText
+                      +"</div>"
+
+
+        marker.addListener('click', function() {
+           $('#location_info').html(markerInfo)
+        });
+        markers.push(marker)
+        
+      });
+  });
+}
+/////////end filter/////////////////
     // Note: This example requires that you consent to location sharing when
     // prompted by your browser. If you see the error "The Geolocation service
     // failed.", it means you probably did not give permission for the browser to
     // locate you.
-    var map, infoWindow, marker;
+    var map, infoWindow
+    var markers = [] //marker;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          	center: {lat: 46.8797, lng: -110.3626},
-          	zoom: 7,
-          	visibility: 'false',
-          	disableDefaultUI: false,     // to show the UI of the map
-          	scrollwheel: true,    // to use scroll wheel for zooming
-          	draggable: true,     // to allow the user to drag the map with mouse
-          	//mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
-          	maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
-          	minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
-          	// setting the zoom control style and postion
-          	zoomControlOptions: {
-          		position: google.maps.ControlPosition.TOP_RIGHT,
-          		//style: google.maps.ZoomControlStyle.DEFAULT
-          	}
+            center: {lat: 46.8797, lng: -110.3626},
+            zoom: 7,
+            visibility: 'false',
+            disableDefaultUI: false,     // to show the UI of the map
+            scrollwheel: true,    // to use scroll wheel for zooming
+            draggable: true,     // to allow the user to drag the map with mouse
+            //mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
+            maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
+            minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
+            // setting the zoom control style and postion
+            zoomControlOptions: {
+              position: google.maps.ControlPosition.TOP_RIGHT,
+              //style: google.maps.ZoomControlStyle.DEFAULT
+
+            }
 
 
         });
+        loadMarkers()
+
+
+
+
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
 
         if (navigator.geolocation) {
-        	var global_pos ={
-              		lat: 5,
-              		lng: 5}
-          	navigator.geolocation.getCurrentPosition(function(position) {
-            	var pos = {
-              		lat: position.coords.latitude,
-              		lng: position.coords.longitude
-            	};
-            	global_pos = pos;
-           		console.log(global_pos);
+          var global_pos ={
+                  lat: 5,
+                  lng: 5}
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var pos = {
+                  lat: position.coords.latitude,
+                  lng: position.coords.longitude
+              };
+              global_pos = pos;
+              console.log(global_pos);
 
-           		          	console.log("Start Draw");
-          	var Range_circle = new google.maps.Circle({
-	            strokeColor: '#FF0000',
-	            strokeOpacity: 0.8,
-	            strokeWeight: 2,
-	            fillColor: '#FF0000',
-	            fillOpacity: 0.35,
-	            map: map,
-	            center: global_pos,
-	            radius: Math.sqrt(100) * 1000
-	          });
+                          console.log("Start Draw");
+            var Range_circle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35,
+              map: map,
+              center: global_pos,
+              radius: Math.sqrt(100) * 1000
+            });
 
-          			
+                
 
-			
+      
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Your location');
@@ -209,8 +315,8 @@ function closeNav() {
             map.setCenter(pos);
             map.setZoom(12);
             }, function() {
-            	handleLocationError(true, infoWindow, map.getCenter());
-          	});
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
 
 
         } else {
@@ -282,105 +388,106 @@ function closeNav() {
 // range circle
 
 if (navigator.geolocation) {
-	var Range_circle = new google.maps.Circle({
-	            strokeColor: '#FF0000',
-	            strokeOpacity: 0.8,
-	            strokeWeight: 2,
-	            fillColor: '#FF0000',
-	            fillOpacity: 0.35,
-	            map: map,
-	            center: {lat: 49.25, lng: -123.1},
-	            radius: Math.sqrt(100) * 1000
-	          });
+  var Range_circle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35,
+              map: map,
+              center: {lat: 49.25, lng: -123.1},
+              radius: Math.sqrt(100) * 1000
+            });
 
-			Range_circle.setMap(map);
-		}
+      Range_circle.setMap(map);
+    }
 
 /////////////////////////////////////////////////////
 
-        /*
-        // Add marker
-    	var marker = new google.maps.Marker({
-      		position: {lat: 46.851446,lng: -114.012625},
-      		map: map,
-      		icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-      		
-    	});
-    	var infoWindow1 = new google.maps.InfoWindow({
-    		content: 'Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes'
-    	});
+     //    /*
+     //    // Add marker
+      // var marker = new google.maps.Marker({
+     //     position: {lat: 46.851446,lng: -114.012625},
+     //     map: map,
+     //     icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+          
+      // });
+      // var infoWindow1 = new google.maps.InfoWindow({
+      //  content: 'Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes'
+      // });
 
-    	marker.addListener('click', function(){
-    		infoWindow1.open(map, marker);
-    	});
-    	*/
-    	// Batteries Plus Bulbs : Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes 
-    	addMarker({coords:{lat: 46.851446,lng: -114.012625},  content: 'Batteries Plus Bulbs : <br>Batteries, CFLs & Tubes'});
-    	// Bayern Brewing Inc : Batteries, CFLs & Tubes
-    	addMarker({coords:{lat: 46.872641,lng: -114.020211}, content: 'Bayern Brewing Inc : <br>Batteries, CFLs & Tubes'});
-    	// Best Buy : Electronics
-    	addMarker({coords:{lat: 46.889230,lng: -114.037012}, content: 'Best Buy : <br>Electronics'});
-    	// Emerald Services : Automotive Fluids & Waste Water
-    	addMarker({coords:{lat: 46.880620,lng: -114.002600}, content: 'Emerald Services : <br>Automotive Fluids & Waste Water'});
-    	// Garden City Recycling : Metal, Cardboard, Paper, Glass (Bayern Eco Pacs), Plastic
-    	// no physical location
-    	// Home Depot: Batteries, CFLs
-    	addMarker({coords:{lat: 46.889920,lng: -114.044634}, content: 'Home Depot: <br>Batteries, CFLs' });
-    	//i.e. Recycling: Cardboard, Paper, Glass, Plastic,,Wood & Lawn Waste, Electronics
-    	// not in missoula 
-    	// JC Penney: Plastic Bags
-    	addMarker({coords:{lat: 46.845190,lng: -114.030109}, content: 'JC Penney: <br>Plastic Bags'});
-    	//Lowes : Batteries, Plastic Bags, CFLS
-    	addMarker({coords:{lat: 46.892964,lng: -114.037458}, content: 'Lowes : <br>Batteries, Plastic Bags, CFLS'});
-    	//Missoula County: Vehicles
-    	addMarker({coords:{lat: 46.875820,lng: -113.995585}, content: 'Missoula County: <br>Vehicles'});
-    	//Missoula Fresh Market: Plastic Bags
-    	addMarker({coords:{lat: 46.876121,lng: -114.005345}, content: 'Missoula Fresh Market: <br>Plastic Bags'});
-    	//Pacific Steel and Recycling : Batteries, Metal, Cardboard, Paper, Electronics
-    	addMarker({coords:{lat: 46.888245,lng: -114.032566}, content: 'Pacific Steel and Recycling : <br>Batteries, Metal, Cardboard, Paper, Electronics'});
-    	//Staples : Electronics
-    	addMarker({coords:{lat: 46.885492,lng: -114.036634}, content: 'Staples : <br>Electronics'});
-    	//Target : Plastic Bags
-    	addMarker({coords:{lat: 46.888071,lng: -114.037189}, content: 'Target : <br>Plastic Bags'});
-    	//Wal-Mart Supercenter : Plastic Bags //has 2 location
-    	addMarker({coords:{lat: 46.831934,lng: -114.047511}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
-    	addMarker({coords:{lat: 46.884144,lng: -114.042075}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
-    	//Axmen Recycling : Batteries, Metal, Electronics, Vehicles
-    	addMarker({coords:{lat: 46.942566,lng: -114.133235}, content: 'Axmen Recycling : <br>Batteries, Metal, Electronics, Vehicles'});
-    	//P.E.T.E.S., Inc.: Tubes, Electronics
-    	addMarker({coords:{lat: 46.842354,lng: -114.038380}, content: 'P.E.T.E.S., Inc.: <br>Tubes, Electronics'});
-    	//Republic Services: Republic Services, Metal, Cardboard, Paper, Plastic
-    	addMarker({coords:{lat: 46.888991,lng: -114.012687}, content: 'Republic Services: <br>Republic Services, Metal, Cardboard, Paper, Plastic'});
+      // marker.addListener('click', function(){
+      //  infoWindow1.open(map, marker);
+      // });
+      // */
+      // // Batteries Plus Bulbs : Batteries Plus Bulbs:<br> Batteries, CFLs & Tubes 
+      // addMarker({coords:{lat: 46.851446,lng: -114.012625},  content: 'Batteries Plus Bulbs : <br>Batteries, CFLs & Tubes'});
+      // // Bayern Brewing Inc : Batteries, CFLs & Tubes
+      // addMarker({coords:{lat: 46.872641,lng: -114.020211}, content: 'Bayern Brewing Inc : <br>Batteries, CFLs & Tubes'});
+      // // Best Buy : Electronics
+      // addMarker({coords:{lat: 46.889230,lng: -114.037012}, content: 'Best Buy : <br>Electronics'});
+      // // Emerald Services : Automotive Fluids & Waste Water
+      // addMarker({coords:{lat: 46.880620,lng: -114.002600}, content: 'Emerald Services : <br>Automotive Fluids & Waste Water'});
+      // // Garden City Recycling : Metal, Cardboard, Paper, Glass (Bayern Eco Pacs), Plastic
+      // // no physical location
+      // // Home Depot: Batteries, CFLs
+      // addMarker({coords:{lat: 46.889920,lng: -114.044634}, content: 'Home Depot: <br>Batteries, CFLs' });
+      // //i.e. Recycling: Cardboard, Paper, Glass, Plastic,,Wood & Lawn Waste, Electronics
+      // // not in missoula 
+      // // JC Penney: Plastic Bags
+      // addMarker({coords:{lat: 46.845190,lng: -114.030109}, content: 'JC Penney: <br>Plastic Bags'});
+      // //Lowes : Batteries, Plastic Bags, CFLS
+      // addMarker({coords:{lat: 46.892964,lng: -114.037458}, content: 'Lowes : <br>Batteries, Plastic Bags, CFLS'});
+      // //Missoula County: Vehicles
+      // addMarker({coords:{lat: 46.875820,lng: -113.995585}, content: 'Missoula County: <br>Vehicles'});
+      // //Missoula Fresh Market: Plastic Bags
+      // addMarker({coords:{lat: 46.876121,lng: -114.005345}, content: 'Missoula Fresh Market: <br>Plastic Bags'});
+      // //Pacific Steel and Recycling : Batteries, Metal, Cardboard, Paper, Electronics
+      // addMarker({coords:{lat: 46.888245,lng: -114.032566}, content: 'Pacific Steel and Recycling : <br>Batteries, Metal, Cardboard, Paper, Electronics'});
+      // //Staples : Electronics
+      // addMarker({coords:{lat: 46.885492,lng: -114.036634}, content: 'Staples : <br>Electronics'});
+      // //Target : Plastic Bags
+      // addMarker({coords:{lat: 46.888071,lng: -114.037189}, content: 'Target : <br>Plastic Bags'});
+      // //Wal-Mart Supercenter : Plastic Bags //has 2 location
+      // addMarker({coords:{lat: 46.831934,lng: -114.047511}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
+      // addMarker({coords:{lat: 46.884144,lng: -114.042075}, content:'Wal-Mart Supercenter : <br>Plastic Bags'});
+      // //Axmen Recycling : Batteries, Metal, Electronics, Vehicles
+      // addMarker({coords:{lat: 46.942566,lng: -114.133235}, content: 'Axmen Recycling : <br>Batteries, Metal, Electronics, Vehicles'});
+      // //P.E.T.E.S., Inc.: Tubes, Electronics
+      // addMarker({coords:{lat: 46.842354,lng: -114.038380}, content: 'P.E.T.E.S., Inc.: <br>Tubes, Electronics'});
+      // //Republic Services: Republic Services, Metal, Cardboard, Paper, Plastic
+      // addMarker({coords:{lat: 46.888991,lng: -114.012687}, content: 'Republic Services: <br>Republic Services, Metal, Cardboard, Paper, Plastic'});
 
-    	
+      
 
 
 
-    	//find better way to for marker (marker function)
-    	function addMarker(props){
-    		var marker = new google.maps.Marker({
-      		position: props.coords,
-      		map: map,
-      		icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    		});
+      // //find better way to for marker (marker function)
+      // function addMarker(props){
+      //  var marker = new google.maps.Marker({
+     //     position: props.coords,
+     //     map: map,
+     //     icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      //  });
 
-    		// Check content
-    		if(props.content){
-    			var infoWindow1 = new google.maps.InfoWindow({
-    				content: props.content
-    			});
-    			marker.addListener('click', function(){
-    				infoWindow1.open(map, marker);
-    			});
+      //  // Check content
+      //  if(props.content){
+      //    var infoWindow1 = new google.maps.InfoWindow({
+      //      content: props.content
+      //    });
+      //    marker.addListener('click', function(){
+      //      infoWindow1.open(map, marker);
+      //    });
 
-    		}
+      //  }
 
-    	}
-    	
+      // }
+      
 
 
     }
 
+    // give error if geolocation faild
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -393,8 +500,10 @@ if (navigator.geolocation) {
       }
 
 
-	
+  
     </script>
+
+</script>
 
 </script>
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
