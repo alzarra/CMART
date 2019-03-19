@@ -1,7 +1,5 @@
-<html>
-<body>
 <?php
-echo "hello there";
+ob_start();
 
 //phpinfo();
 
@@ -25,6 +23,7 @@ $sql = "INSERT INTO mrTable (user,password)
 if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
  //   echo  Values('".$_POST["user"]."','".$_POST["password"]."')"; printing out ne data from database
+ header("Location:stats.html");
 
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
@@ -34,5 +33,3 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 ?>
-<html>
-<body>
