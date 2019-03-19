@@ -55,14 +55,7 @@
 
 <div id="mySidenav" class="sidenav" style="font-size: 16px;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">County</a>
-  <select>
-  	<option> Missoula</option>
-  </select>
-  <a href="#">City</a>
-  <select>
-  	<option> Missoula</option>
-  </select>
+  
   <a href="#">Kind of Material</a>
   
 
@@ -134,11 +127,14 @@
   <form action="/action_page.php"
 	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px">
 	  0
-	  <input type="range" id="a" name="a" value="50" style="margin-right: 50px">
+	  <input type="range" min='1' max='100' value='50' id= 'myRange' clase='slider' style="margin-right: 50px">
 	  100
+    <br>
+    <div>Value: <div id='demo'></div></div>
    </form>
    <br>
-   <input type="submit" value="Sarch" style='font-size:30px'>
+   <br>
+   <br>
 </div>
 
 
@@ -152,7 +148,17 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
+
+// for slider 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function(){
+  output.innerHTML = this.value
+}
 </script>
+
 
 <div id="map"></div>
 
@@ -305,6 +311,7 @@ function loadMarkers() {
               console.log(global_pos);
 
                           console.log("Start Draw");
+            //drawing range circle 
             var Range_circle = new google.maps.Circle({
               strokeColor: '#FF0000',
               strokeOpacity: 0.8,
@@ -313,7 +320,7 @@ function loadMarkers() {
               fillOpacity: 0.35,
               map: map,
               center: global_pos,
-              radius: Math.sqrt(100) * 1000
+              radius: Math.sqrt(100) * 50
             });
 
                 
