@@ -1,17 +1,25 @@
 body{
-	margin-left: 0px;
-	margin-right: 10px;
+	margin-left: 10px;
+	margin-right: 20px;
 }
 
+h10
+{
+text-align: center;
+font-size: 50px;
+line-height: 5px;
+}
+
+/* Navigation Bar */
 ul {
   list-style-type: none;
   margin: 0;
+  margin-bottom: 10px;
   padding: 0;
   overflow: hidden;
   width: 100%;
-  //height: 78px;
   background-color: rgb(174, 214, 145);
-  border-radius: 0px;
+  border-radius: 30px; /* Put this to 0px to turn Nav Bar to square looking */
   border-top: 5px solid rgb(41, 74, 112);
   border-left: 5px solid rgb(41, 74, 112);
   border-right: 5px solid rgb(41, 74, 112);
@@ -19,6 +27,8 @@ ul {
   font-size: 30px;
 }
 
+
+/* Navigation Buttons */
 li {
   float: left;
 
@@ -29,6 +39,7 @@ li a {
   font-family: sans-serif;
   font-weight: bold;
   color: black;
+  border-radius: 25px;
   text-align: center;
   padding: 20px 30px;
   text-decoration: none;
@@ -42,9 +53,10 @@ li a:hover {
   display: block;
 }
 
+
+/* li2 is li but only for the SignIn/LogIn button */
 li2 {
   float: right;
-
 }
 
 li2 a {
@@ -52,6 +64,7 @@ li2 a {
   font-family: sans-serif;
   font-weight: bold;
   color: black;
+  border-radius: 25px;
   text-align: center;
   padding: 20px 30px;
   text-decoration: none;
@@ -66,198 +79,55 @@ li2 a:hover {
 }
 
 
+/* Index Grids */
 .grid-container { 				
-//Background Properties
   display: grid;
-  //grid-gap: 10px;
   background-color: rgb(41, 74, 112);
   padding: -5px;
-  //border-radius: 10px;
-  //grid-template-rows: auto;
-  //grid-template-columns: .60fr .75fr 1fr;
-  border-top: 1px solid rgb(244, 160, 36);
+  
   border-left: 5px solid rgb(41, 74, 112);
   border-right: 5px solid rgb(41, 74, 112);
   border-bottom: 5px solid rgb(41, 74, 112);
   height: 100vh;
-  //width: 100%;
   margin-right: -9px;
+  border-radius: 30px 30px 0px 0px;
   }
 
-.grid-containerSTAT {         
-//Background Properties
-  display: grid;
-  //grid-gap: 10px;
-  background-color: rgb(41, 74, 112);
-  padding: -5px;
-  //border-radius: 10px;
-  //grid-template-rows: auto;
-  //grid-template-columns: .60fr .75fr 1fr;
-  border-top: 1px solid rgb(244, 160, 36);
-  border-left: 5px solid rgb(41, 74, 112);
-  border-right: 5px solid rgb(41, 74, 112);
-  border-bottom: 5px solid rgb(41, 74, 112);
-  height: 150vh;
-  //width: 100%;
-  margin-right: -9px;
-  }
-
- .grid-container2 { 			
- //Grid Properties
-  display: grid;
-  //grid-gap: 10px;
-  background-color: rgb(41, 74, 112);
-  padding: -5px;
-  //border-radius: 10px;
-  //grid-template-rows: auto;
-  //grid-template-columns: .60fr .75fr 1fr;
-  border-top: 1px solid rgb(244, 160, 36);
-  border-left: 5px solid rgb(41, 74, 112);
-  border-right: 5px solid rgb(41, 74, 112);
-  border-bottom: 5px solid rgb(41, 74, 112);
-  //height: 100vh;
-  //width: 100%;
-  margin-right: -9px;
-  }
-
-.grid-container > div { 		
-//Grid Properties
-  background-color: white;
+.grid-container > div {     
   font-family: sans-serif;
   padding: 20px;
   font-size: 30px;
-  //border-radius: 4px;
-  //border: 2px solid #4d5a66;
-  //margin-left: 15px;
-  //height: 10px;
+  /* border: 2px solid red; /* COMMENT IN/OUT FOR DEBUGGING */
+
   }
 
-  .grid-containerSTAT > div {     
-//Grid Properties
-  background-color: white;
-  font-family: sans-serif;
-  padding: 20px;
-  font-size: 30px;
-  //border-radius: 4px;
-  //border: 2px solid #4d5a66;
-  //margin-left: 15px;
-  //height: 10px;
-  }
-
-.grid-containerC0 { 			
-//CG Grid - Replaces 'grid-container'
-  display: grid;
-
-  background-color: rgb(41, 74, 112);
-  padding: -5px;
-
-  border-top: 1px solid rgb(244, 160, 36);
-  border-left: 5px solid rgb(41, 74, 112);
-  border-right: 5px solid rgb(41, 74, 112);
-  border-bottom: 5px solid rgb(41, 74, 112);
-  height: 100vh;
-  width: 100%;
-  }
-  
-.grid-containerC0 > div { 		
-//CG Properties - Replaces 'grid-container'
-  background-color: white;
-  font-family: sans-serif;
-  padding: 20px;
-  font-size: 30px;
-  }
-  
-.itemC0 {  			
-//CG - Replaces 'item2' - Contact Us Fonts
-  text-align: justify;
-  Background-color: white;
-  border: 2px solid rgb(244, 160, 36);
-  border-top: 6px solid rgb(244, 160, 36);
-  }
-  
-.itemC1 {  			
-//CG - Replaces ' item2' - Home Fonts
-  font-family: sans-serif;
-  font-size: 16px;
-  text-align: left;
-  
-  padding-left: 5px;
-  width: 100%;
-  
-  Background-color: white;
-  border: 2px solid rgb(244, 160, 36);
-  border-top: 6px solid rgb(244, 160, 36);
-  }
-  
-.itemC2  {  		
-//CG - Replaces 'item22' - About Us Picture
-  font-family: sans-serif;
-  
-  
-  border: 2px solid rgb(244, 160, 36);
-  background-color: white;
-  height: 85%;
-  text-align: justify;
-  margin-top: -5px;
-  }
-  
-.item1 {  			//HEADER
-  border-radius: 15px 42px;
-  border: 0px;
-  background-color: rgb(41, 74, 112);
+/* Header Grid */
+.item1 {
+  background-color: rgb(41, 74, 112, 0);
   color: rgb(244, 160, 36);
   font-weight: bold;
   text-align: center;
-  height: 9%;
-  }
+  height: 25px;
+  margin-top: 20px
+}
 
-.item12 {  			//HEADER
-  border-radius: 15px 42px;
-  border: 0px;
-  background-color: rgb(41, 74, 112);
-  color: rgb(244, 160, 36);
-  font-weight: bold;
-  text-align: center;
-  height: 5%;
-  }
-
-.item2 {  			//HEADER
+.item2 {
+  padding: 40px;
+  font-size: 25px;
   font-family: sans-serif;
-  //border-radius: 15px 42px;
-  border: 2px solid rgb(244, 160, 36);
-  border-top: 6px solid rgb(244, 160, 36);
+  border: 5px solid rgb(244, 160, 36);
+  border-top: 3px solid rgb(244, 160, 36);
   background-color: white;
   height: 85%;
+  margin-right: -9.5px;
   text-align: justify;
-  }
-  
-.item22 {  			//HEADER
-  font-family: sans-serif;
-  //border-radius: 15px 42px;
-  border: 2px solid rgb(244, 160, 36);
-  background-color: white;
-  height: 85%;
-  text-align: justify;
-  margin-top: -5px
-  }
+  border-radius: 0px 0px 30px 30px;
+}
 
-.item3 {  			//STAR INPUT
-  font-family: sans-serif;
-  //border-radius: 15px 42px;
-  border: 2px solid rgb(244, 160, 36);
-  background-color: white;
-  height: 3%;
-  text-align: justify;
-  //margin-bottom: 75px
-  }
 
-.item33 {  			//STAT TABLE
-  font-family: sans-serif;
-  //border-radius: 15px 42px;
-  border: 2px solid rgb(244, 160, 36);
-  background-color: white;
-  text-align: justify;
-  margin-top: 10px
+
+/*-------------------------------------------------------------------*/
+
   }
 
 
