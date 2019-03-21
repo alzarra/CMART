@@ -79,22 +79,22 @@
     <label for='Glass'>Glass</label>
 <br><br>
     <input type="checkbox" name="filter" id="Plastic_Bags_Film_Wrap" class='chk-btn'>
-    <label for='Plastic Bags/Film/Wrap'>Plastic Bags/Film/Wrap</label>
+    <label for='Plastic_Bags_Film_Wrap'>Plastic Bags/Film/Wrap</label>
 <br><br>
     <input type="checkbox" name="filter" id="CFLs_and_Tubes" class='chk-btn'>
-    <label for='CFLs & Tubes'>CFLs & Tubes</label>
+    <label for='CFLs_and_Tubes'>CFLs & Tubes</label>
 <br><br>
     <input type="checkbox" name="filter" id="Wood_and_Lawn_Waste__Kitchen_Compost" class='chk-btn'>
-    <label for='Wood & Lawn Waste/Kitchen Compost'>Wood & Lawn Waste/Kitchen Compost</label>
+    <label for='Wood_and_Lawn_Waste__Kitchen_Compost'>Wood & Lawn Waste/Kitchen Compost</label>
 <br><br>
     <input type="checkbox" name="filter" id="Cooking_Oil" class='chk-btn'>
-    <label for='Cooking Oil'>Cooking Oil</label>
+    <label for='Cooking_Oil'>Cooking Oil</label>
 <br><br>
     <input type="checkbox" name="filter" id="Electronics" class='chk-btn'>
     <label for='Electronics'>Electronics</label>
 <br><br>
     <input type="checkbox" name="filter" id="Automotive_Fluids_and_Waste_Water" class='chk-btn'>
-    <label for='Automotive Fluids & Waste Water'>Automotive Fluids & Waste Water</label>
+    <label for='Automotive_Fluids_and_Waste_Water'>Automotive Fluids & Waste Water</label>
 <br><br>
     <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
     <label for='Tires'>Tires</label>
@@ -197,7 +197,7 @@ var filter_markers = function() {
     // start the filter check assuming the marker will be displayed
     // if any of the required features are missing, set 'keep' to false
     // to discard this marker
-    keep=true
+    keep= true 
     for (opt=0; opt<set_filters.length; opt++) {
       //console.log(marker.properties[set_filters[opt]])
       if (marker.properties[set_filters[opt]]) {
