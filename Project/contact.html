@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+
+
+<!-- Webpage Begin -->
 <html>
 
 
@@ -12,26 +16,25 @@
 	
 <!-- Style Sheet -->
 <style type="text/css">
-h3 
-{
-	color : red;
-	margin-left: 20px;
-}
+	h3 
+	{
+		color : red;
+		margin-left: 20px;
+	}
 
-form 
-{
-	margin-left: 10%;
-	font-size: 20px;
-}
+	form 
+	{
+		margin-left: 10%;
+		font-size: 20px;
+	}
 
-h10
-{
-text-align: center;
-font-size: 50px;
-line-height: 5px;
-}
+	h10
+	{
+	text-align: center;
+	font-size: 50px;
+	line-height: 5px;
+	}
 </style>
-<!-- Style Sheet End -->
 
 
 
@@ -39,7 +42,7 @@ line-height: 5px;
 		<script language="javascript">
 			function checkFields()
 			{
-				//Attributes:
+				<!-- Attributes -->
 				var email = document.getElementById("email");
 				var firstname = document.getElementById("firstName");
 				var lastname = document.getElementById("lastName");
@@ -47,7 +50,7 @@ line-height: 5px;
 				var sub = document.getElementById("sub");
 				var count = 0;
 				
-				//First Name Value Checking
+				<!-- First Name Value Checking -->
 				if(firstname.value == "")
 				{
 					window.alert("Please enter your first name.");
@@ -59,7 +62,7 @@ line-height: 5px;
 					count = count+1;
 				}
 				
-				//Last Name Value Checking
+				<!-- Last Name Value Checking -->
 				if(lastname.value == "")
 				{
 					window.alert("Please enter your last name.");
@@ -71,7 +74,7 @@ line-height: 5px;
 					count = count+1;
 				}
 				
-				//Email Value Checking
+				<!-- Email Value Checking -->
 				if(email.value == "")
 				{
 					window.alert("Please enter your email.");
@@ -83,7 +86,7 @@ line-height: 5px;
 					count = count+1;
 				}
 				
-				//Comment Value Checking
+				<!-- Comment Value Checking -->
 				if(comment.value == "")
 				{
 					window.alert("Please enter a comment.");
@@ -95,11 +98,11 @@ line-height: 5px;
 					count = count+1;
 				}
 
-				//Final Message
+				<!-- Final Message -->
 				if(count >= 4)
 				{
-					//window.alert("Thank you for sending us a message!");
-					//window.location = "contact.html";
+					<!-- window.alert("Thank you for sending us a message!"); -->
+					<!-- window.location = "contact.html"; -->
 					document.getElementById("firstName_L").style.display = "none";
 					firstname.style.display = "none";
 					document.getElementById("lastName_L").style.display = "none";
@@ -127,8 +130,8 @@ line-height: 5px;
 			{
 				control.style.background = "#ffffff";
 			}
-		</script>					<!-- Script for Emails End -->
-</head>								<!-- Website Title End-->
+		</script>					
+</head>				<!-- Website Title End -->						
 
 
 
@@ -154,31 +157,28 @@ line-height: 5px;
 		<li><a href = 'about.html' 		> About Us					</a></li>
         <li><a href = 'stats.html' 		> Recycling Statistics		</a></li>
         <li2><a href = 'signup.html' 	> Login/Sign Up				</a></li>
-	</ul>						<!-- Navigation Bar  End-->
+	</ul>						
 
 
 
 <!-- Page Title -->
-	<div class = "grid-container"  style = "height:95%;">
+<div class = "grid-container"  style = "height:95%;">
     <div class="item1">      
-              <h10>Contact Us</h10>
-    </div>						<!-- Page Title End-->
+		<h10>Contact Us</h10>
+    </div>						
 
-
+	
 
 <!-- Body 1 Start -->	
 <div class="item2" style="margin-left: -5px; margin-right: -5px; height: 100%; margin-top: 5px;">	
 
+
+
+	<!-- Posting to Gmail -->
+	<div>
+	<form class="gform" style = "padding-right:10%" method="POST" data-email="mohammad.alsaad93@gmail.com"
+	action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
 	
-<!-- <div>  DO WE NEED THIS?-->
-
-
-
-<!-- Posting to Gmail -->
-<div>
-<form class="gform" style = "padding-right:10%" method="POST" data-email="mohammad.alsaad93@gmail.com"
-action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQB5Oh8Xu/exec">
-			
 
 
 	<!-- Textfields Style -->
@@ -187,32 +187,26 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 	
 	
 	<!-- First Name Field -->
-	<label id = "firstName_L"	>First Name	</label>
-	<br>
+	<label id = "firstName_L"	>First Name		</label>														<br>
 	<input type="text" name="firstName" id="firstName" onfocus="revertBack(this);"  
-	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
-	<br>
+	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">											<br>
+	
 	
 	
 	<!-- Last Name Field -->
 	<br>
-	<label id = "lastName_L"	>Last Name		</label>
-	<br>
+	<label id = "lastName_L"	>Last Name		</label>														<br>
 	<input type="text" name="lastName"  id="lastName" onfocus="revertBack(this);"  
-	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
+	onblur="makeWhite(this);" size="25" style="margin-right: 48px;">											<br><br>
+
 	
-	<br>
-	<br>
-
+	
 	<!-- Email Field -->
-	<label id = "email_L"		>E-mail		</label>
-	<br>
-	<input type="text" id = "email" name="emil" placeholder="" 
-	onfocus="revertBack(this);"  onblur="makeWhite(this);" size="25" style="margin-right: 48px;">
-
-	<br>
-	<br>
-	<br>
+	<label id = "email_L"		>E-mail		</label>															<br>
+	<input type="text" id = "email" name="emil" placeholder="example@website.com" 
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" size="25" style="margin-right: 48px;">				<br><br><br>
+	
+	
 	
 	<!-- Submit Button -->
 	<input class="button" id="sub" type="submit" name="submit" value="Submit" 
@@ -221,30 +215,38 @@ action="https://script.google.com/macros/s/AKfycbw7SleBjC84yqWwpquzOVn4nRg5miYLQ
 	
 	
 	<!-- Message Field -->
-	<label id = "comment_L" 	>Message		</label>
-	<br>
+	<label id = "comment_L" 	>Message		</label>														<br>
 	<textarea name="comment" id ="comment" placeholder="Write your message here!" 
-	onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100" ></textarea>
+	onfocus="revertBack(this);"  onblur="makeWhite(this);" rows="10" cols="100" ></textarea>					<br><br>
+	</div>	<!-- Textfields Style End -->
 
-	<br>
-	<br>
+
 	
+	<div style="display:none" class="thankyou_message" >
+		<!-- You can customize the thankyou message by editing the code below -->
+		<h2 style="text-align: center";><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
 	</div>
-
-
-
-			<div style="display:none" class="thankyou_message" >
-				<!-- You can customize the thankyou message by editing the code below -->
-				<h2 style="text-align: center";><em>Thanks</em> for contacting us! We will get back to you soon!</h2>
-			</div>
-		
-		</form>
-	</div>
+	
+	
+	
+	</form>	<!-- Posting to Gmail End -->
+	</div>	<!-- Posting to Gmail End -->
+	
+	
+	
 	<div style="text-align: center";>
 		<input class="button" type="submit" name="submit" id = "submit_L"  value="Submit" onclick="checkFields();" style="margin-right: 67px;">
 	</div>
 	
-</div>
+	
+	
+</div>		<!-- Body 1 End -->	
+
+
+
 <script data-cfasync="false" type="text/javascript" src="email.js"></script>
-</body>
-</html>
+
+
+
+</body>		<!-- Webpage Body End -->
+</html>		<!-- Webpage End -->
