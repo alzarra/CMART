@@ -25,7 +25,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Metal, Cardboard, Paper, Plastic",
     "Note":"",
     "Link":"https://gallatinsolidwaste.org/recycling/drop-off-bins/"
     }
@@ -54,7 +54,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":true,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Electronics, Tires",
     "Note":"",
     "Link":"https://adlc.us/departments/planning/class-iii-landfill/"
     }
@@ -83,7 +83,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":true,
-    "Description":"",
+    "Description":"Vehicles",
     "Note":"DEQ",
     "Link":"http://www.deq.mt.gov/land/junkvehicles/contacts"
     }
@@ -112,7 +112,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Metal, Cardboard, Paper, Glass, Plastic, Wood_and_Lawn_Waste__Kitchen_Compost, Electronics",
     "Note":"DEQ",
     "Link":"http://www.lccountymt.gov/public-works/solid-waste/augusta-solid-waste-district.html"
     }
@@ -141,7 +141,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Metal",
     "Note":"",
     "Link":"http://www.bakermetalrecycling.com/"
     }
@@ -170,7 +170,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":true,
-    "Description":"",
+    "Description":"Vehicles",
     "Note":"DEQ",
     "Link":"http://www.deq.mt.gov/land/junkvehicles/contacts"
     }
@@ -199,7 +199,7 @@
     "Automotive_Fluids_and_Waste_Water":true,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, Metal, Wood_and_Lawn_Waste__Kitchen_Compost, Automotive_Fluids_and_Waste_Water",
     "Note":"",
     "Link":"https://gallatinsolidwaste.org/recycling/drop-off-bins/"
     }
@@ -228,7 +228,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Metal, Cardboard, Paper, Plastic",
     "Note":"",
     "Link":"https://gallatinsolidwaste.org/recycling/drop-off-bins/"
     }
@@ -242,7 +242,7 @@
     "properties": {
     "marker-size":"small",
     "Town":"Belgrade",
-    "Recycler":"true Value",
+    "Recycler":true,
     "Batteries":true,
     "Metal":false,
     "Cardboard":false,
@@ -4462,7 +4462,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, CFLs_and_Tubes",
     "Note":"",
     "Link":"https://www.batteriesplus.com/"
     }
@@ -4491,7 +4491,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Glass",
     "Note":"",
     "Link":"http://new.bayernbrewery.com/eco-league/"
     }
@@ -4520,7 +4520,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Electronics",
     "Note":"",
     "Link":"https://www.bestbuy.com/site/misc/best-buy-trade-in/pcmcat133600050011.c?id=pcmcat133600050011"
     }
@@ -4549,7 +4549,7 @@
     "Automotive_Fluids_and_Waste_Water":true,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Automotive_Fluids_and_Waste_Water",
     "Note":"",
     "Link":"http://emeraldrenews.com/"
     }
@@ -4578,7 +4578,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Metal, Paper, Glass, Plastic",
     "Note":"",
     "Link":"http://gardencityrecycling.com/"
     }
@@ -4607,7 +4607,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, CFLs_and_Tubes",
     "Note":"",
     "Link":"http://ecooptions.homedepot.com/healthy-home/recycling/"
     }
@@ -4636,7 +4636,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Cardboard, Paper, Glass, Plastic, Wood_and_Lawn_Waste__Kitchen_Compost",
     "Note":"",
     "Link":"http://recyclingworksmt.com/"
     }
@@ -4665,7 +4665,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Plastic_Bags_Film_Wrap",
     "Note":"",
     "Link":"http://stores.jcpenney.com/mt/missoula/clothing-stores-missoula-mt-1981.html"
     }
@@ -4694,7 +4694,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, Plastic_Bags_Film_Wrap, CFLs_and_Tubes",
     "Note":"",
     "Link":"https://www.lowes.com/cd_Helping+the+Environment+With+Recycling+Centers_368967519_"
     }
@@ -4723,7 +4723,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":true,
-    "Description":"",
+    "Description":"Vehicles",
     "Note":"",
     "Link":"https://www.missoulacounty.us/government/health/health-department/home-environment/junk-vehicle-program"
     }
@@ -4752,7 +4752,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Plastic_Bags_Film_Wrap",
     "Note":"",
     "Link":"http://missoulafm.com/"
     }
@@ -4781,7 +4781,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, Metal, Cardboard, Paper, Electronics",
     "Note":"",
     "Link":"http://www.pacific-steel.com/locations"
     }
@@ -4810,7 +4810,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Electronics",
     "Note":"",
     "Link":"http://www.staples.com/"
     }
@@ -4839,7 +4839,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Plastic_Bags_Film_Wrap",
     "Note":"",
     "Link":"http://www.target.com/sl/missoula/885"
     }
@@ -4868,7 +4868,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Plastic_Bags_Film_Wrap",
     "Note":"",
     "Link":"https://www.walmart.com/store/2147"
     }
@@ -4897,7 +4897,7 @@
     "Automotive_Fluids_and_Waste_Water":true,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, Metal, Automotive_Fluids_and_Waste_Water",
     "Note":"",
     "Link":"http://www.axmen.com/recycling.html"
     }
@@ -4926,7 +4926,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"CFLs_and_Tubes, Electronics",
     "Note":"",
     "Link":"http://www.peteselec.com/"
     }
@@ -4955,7 +4955,7 @@
     "Automotive_Fluids_and_Waste_Water":false,
     "Tires":false,
     "Vehicles":false,
-    "Description":"",
+    "Description":"Batteries, Metal, Cardboard, Paper",
     "Note":"",
     "Link":"https://www.republicservices.com/locations/montana/missoula/59801"
     }
