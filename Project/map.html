@@ -14,16 +14,23 @@
     line-height: 5px;
   }
   .fix-me {
-  position: fixed;
-  top:78%;
-  right: 60%;
-  width: 15%;
-  height: 15%;
-  border: 1px solid blue;
+  /*position: fixed;*/
+  /*top:60%;*/
+  /* bottom: 5%;*/
+  /*left: 15%;*/
+  height: 14.5%;
+  width: 78.6%;
+  /*border: 1px solid blue;*/
   padding: 10px;
-  font-size: 10px;
-  background-color: white;
+  font-size: 14px;
+  /*background-color: white;*/
+  margin-left: 21%;
+  background-color: #aed6f1;
+  border: 5px solid rgb(244, 160, 36);
+  padding: -5px;
+
 }
+
 </style>
 
 
@@ -43,7 +50,7 @@
     <li2><a href = 'signup.html' > Login/Sign Up</a></li>
   </ul>
 
-<!-- side search bar -->
+<!-- tital bar -->
 
 <div class="grid-container">
     <div class="item1">
@@ -51,10 +58,12 @@
               <h10>Recycle Montana Map</h10>
     </div>
     <div class="item2" style="height:750px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px;"  >
+
+
 <!-- side search bar -->
 
-<div id="mySidenav" class="sidenav" style="font-size: 16px;">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+<div id="mySidenav" class="sidenav" style="font-size: 16px; ">
+  <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   
   <a href="#">Recyclable Materials:</a>
   
@@ -138,7 +147,7 @@
 </div>
 
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
+<!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
 
 <script>
 function openNav() {
@@ -157,7 +166,7 @@ output.innerHTML = slider.value;
 slider.oninput = function(){
   output.innerHTML = this.value
 }
-</script>
+</script> -->
 
 
 <div id="map"></div>
