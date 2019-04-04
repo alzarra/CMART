@@ -90,7 +90,12 @@
 						amount = parseFloat(document.getElementById('paperIBS').textContent);
 						num = parseFloat(document.getElementById('treeSaved').textContent);
 						total = num + (amount/150);
-						document.getElementById('treeSaved').textContent = "" + total.toFixed(2);
+						document.getElementById('treeSaved').textContent = "" + total.toFixed(2) + " tree(s)";
+
+						amount = parseFloat(document.getElementById('paperKG').textContent);
+						num = parseFloat(document.getElementById('CO2saved').textContent);
+						total = num + amount*.0043;
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " TON(s)";
 					}
 
 
@@ -241,7 +246,7 @@ li2{ text-align:right;}
 </tr>
 </table>
 
-<p style="text-align: left" size"22">-About 65 pounds of plastic is made from only 6% of barrel of oil</p>
+<!--<p style="text-align: left" size"22">-About 65 pounds of plastic is made from only 6% of barrel of oil</p>-->
 <br>
 
     </div>
