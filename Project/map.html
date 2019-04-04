@@ -66,9 +66,27 @@
   <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   
   <a href="#">Recyclable Materials:</a>
-  
-
-
+    
+    <!--  script to secelect all -->
+    <script type="text/javascript">
+      $('#select-all').click(function(event) {   
+    if(this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function() {
+            this.checked = true;
+            console.log("select-all")                        
+        });
+    } else {
+        $(':checkbox').each(function() {
+            this.checked = false;                       
+        });
+    }
+});
+    </script>
+    
+    <!-- <input type="checkbox" name="select-all" id="select-all" class='chk-btn'>
+    <label for='all'>Show all</label>
+    <br><br> -->
     <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
     <label for='Plastic'>Plastic</label>
     <br><br>
@@ -206,12 +224,12 @@ var filter_markers = function() {
     // start the filter check assuming the marker will be displayed
     // if any of the required features are missing, set 'keep' to false
     // to discard this marker
-    keep= true 
+    keep= false 
     for (opt=0; opt<set_filters.length; opt++) {
       //console.log(marker.properties[set_filters[opt]])
       if (marker.properties[set_filters[opt]]) {
         //console.log("hi there")
-        keep = false;
+        keep = true;
       }
     }
     marker.setVisible(keep)
@@ -536,7 +554,9 @@ if (navigator.geolocation) {
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
         async defer></script>
 
-<div class="fix-me button"id="location_info"><div>
+<div class="fix-me button"id="location_info">All Recycled points are show in the map, Please select The recyclable material desired
+  <br>
+  click on the recycling point to show more infomation about it<div>
 
 </body>
 </html>
