@@ -52,80 +52,62 @@
 
 <!-- tital bar -->
 
-<div class="grid-container" style="border-radius: 30px 30px 30px 30px;">
+<div class="grid-container">
     <div class="item1">
             
               <h10>Recycle Montana Map</h10>
     </div>
-    <div class="item2" style="height:775px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px; border-radius: 0px 0px 30px 30px;"  >
+    <div class="item2" style="height:750px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px;"  >
 
 
 <!-- side search bar -->
 
-<div id="mySidenav" class="item2" style="font-size: 15px; width: 215px; margin-top: -23px; margin-left: -25px; height: 96%; border-radius: 0px 0px 0px 30px; ">
+<div id="mySidenav" class="sidenav" style="font-size: 16px; ">
   <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   
-  <b>Recyclable Materials:</b><br><br><br>
-    
-    <!--  script to secelect all -->
-    <script type="text/javascript">
-      $('#select-all').click(function(event) {   
-    if(this.checked) {
-        // Iterate each checkbox
-        $(':checkbox').each(function() {
-            this.checked = true;
-            console.log("select-all")                        
-        });
-    } else {
-        $(':checkbox').each(function() {
-            this.checked = false;                       
-        });
-    }
-});
-    </script>
-    
-    <!-- <input type="checkbox" name="select-all" id="select-all" class='chk-btn'>
-    <label for='all'>Show all</label>
-    <br><br> -->
+  <a href="#">Recyclable Materials:</a>
+  
+
+
     <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
     <label for='Plastic'>Plastic</label>
-    <br><br><br>
+    <br><br>
     <input type="checkbox" name="filter" id="Batteries" class='chk-btn'>
     <label for='Batteries'>Batteries</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Metal" class='chk-btn'>
     <label for='Metal'>Metal</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Cardboard" class='chk-btn'>
     <label for='Cardboard'>Cardboard</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Paper" class='chk-btn'>
     <label for='Paper'>Paper</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Glass" class='chk-btn'>
     <label for='Glass'>Glass</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Plastic_Bags_Film_Wrap" class='chk-btn'>
     <label for='Plastic_Bags_Film_Wrap'>Plastic Bags/Film/Wrap</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="CFLs_and_Tubes" class='chk-btn'>
     <label for='CFLs_and_Tubes'>CFLs & Tubes</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Wood_and_Lawn_Waste__Kitchen_Compost" class='chk-btn'>
-    <label for='Wood_and_Lawn_Waste__Kitchen_Compost' style="font-size: 10px">Wood & Lawn Waste/Kitchen Compost</label>
-<br><br><br>
+    <label for='Wood_and_Lawn_Waste__Kitchen_Compost'>Wood & Lawn Waste/Kitchen Compost</label>
+<br><br>
     <input type="checkbox" name="filter" id="Cooking_Oil" class='chk-btn'>
     <label for='Cooking_Oil'>Cooking Oil</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Electronics" class='chk-btn'>
     <label for='Electronics'>Electronics</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Automotive_Fluids_and_Waste_Water" class='chk-btn'>
-    <label for='Automotive_Fluids_and_Waste_Water' style="font-size: 11px">Automotive Fluids & Waste Water</label>
-<br><br><br>
+    <label for='Automotive_Fluids_and_Waste_Water'>Automotive Fluids & Waste Water</label>
+<br><br>
     <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
     <label for='Tires'>Tires</label>
-<br><br><br>
+<br><br>
     <input type="checkbox" name="filter" id="Vehicles" class='chk-btn'>
     <label for='Vehicles'>Vehicles</label>
 
@@ -150,7 +132,7 @@
 
   	<br>
   
-  <!--<br><br><br><b>Range:</b><br><br><br>
+  <a href="#">Range:</a>
   <form action="/action_page.php"
 	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px">
 	  0
@@ -161,7 +143,7 @@
    </form>
    <br>
    <br>
-   <br> -->
+   <br>
 </div>
 
 
@@ -187,7 +169,7 @@ slider.oninput = function(){
 </script> -->
 
 
-<div id="map" class="item2" style="width: auto; margin-right: -25px; margin-top: -830px; margin-left: 275px;   border-radius: 0px 0px 0px 0px; height: 75%;"></div>
+<div id="map"></div>
 
  <script>
 
@@ -224,12 +206,12 @@ var filter_markers = function() {
     // start the filter check assuming the marker will be displayed
     // if any of the required features are missing, set 'keep' to false
     // to discard this marker
-    keep= false 
+    keep= true 
     for (opt=0; opt<set_filters.length; opt++) {
       //console.log(marker.properties[set_filters[opt]])
       if (marker.properties[set_filters[opt]]) {
         //console.log("hi there")
-        keep = true;
+        keep = false;
       }
     }
     marker.setVisible(keep)
@@ -554,9 +536,7 @@ if (navigator.geolocation) {
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
         async defer></script>
 
-<div class="fix-me button"id="location_info" style="width: auto; margin-right: -25px; margin-left: 275px; height: 130.5px; border-radius: 0px 0px 30px 0px;">All Recycled points are show in the map, Please select The recyclable material desired
-  <br>
-  click on the recycling point to show more infomation about it<div>
+<div class="fix-me button"id="location_info"><div>
 
 </body>
 </html>
