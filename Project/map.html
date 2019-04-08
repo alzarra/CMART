@@ -3,6 +3,7 @@
 <head>
 	<title>Montana Recycle - Map</title>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery.localscroll@2.0.0/jquery.localScroll.min.js"></script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -203,7 +204,7 @@
 	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px"> -->
 	  <!-- 0 -->
 
-	  <input type="range" min="200" max="1500" value="1000" class="slider" id="myRange">
+	  <input type="range" min="200" max="1500" value="850" class="slider" id="myRange">
 	  <!-- 100 -->
     <br>
     <div>Distance in miles : <div id='demo'></div></div>
@@ -213,13 +214,16 @@
    <br>
 </div>
 <script>
+	//document.getElementById('myRange').value = 500
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value;
 
 slider.oninput = function() {
+	//document.getElementById('myRange').value = 500
   output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
-  var x = document.getElementById('myRange').value
+   var x = document.getElementById('myRange').value
+  //location.reload();
 
   
 }
@@ -347,7 +351,7 @@ function loadMarkers() {
                       + "</h3>Town: " +  townText
                       + "<br>Recycling: " + descriptionText   
                       + "<br>Website: <a href=\""+ websiteText
-                      + "\">Link</a><br>Note: "+ noteText
+                      + "\" target=\"_blank\">Link</a><br>Note: "+ noteText
                       +"</div>"
 
 
@@ -418,10 +422,11 @@ function loadMarkers() {
               strokeOpacity: 0.8,
               strokeWeight: 2,
               fillColor: '#FF0000',
-              fillOpacity: 0.35,
+              fillOpacity: 0.1,
               map: map,
               center: global_pos,
-              radius: Math.sqrt(100) * document.getElementById("demo").value
+              radius: Math.sqrt(100) * document.getElementById("myRange").value
+              //$.scrollTo("#myRange");
               //google.maps.event.trigger(MapInstance,'resize')
             }); 
 
