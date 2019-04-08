@@ -30,6 +30,38 @@
   padding: -5px;
 
 }
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 10%;
+  border: 1px solid rgb(244, 160, 36);
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
 
 </style>
 
@@ -68,7 +100,40 @@
   
   <a href="#">Recyclable Materials:</a>
   
+      <!-- !!! Not working because each click it calls the filter function and selecting all is not clicking  -->
+   <!--  <input type="checkbox" name="select-all" id="select-all" class='chk-btn'>
+    <label for= 'select-all'>Select All</label>
+    <br><br>
 
+    Script for selecting all 
+    <script type="text/javascript">
+
+        function selectAll() {
+            var items = document.getElementsByName('filter');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = true;
+            }
+        }
+
+        function UnSelectAll() {
+            var items = document.getElementsByName('filter');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = false;
+            }
+        }     
+      // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {   
+            if(this.checked) {
+                // Iterate each checkbox
+                selectAll()
+            } else {
+                UnSelectAll()
+            }
+        });
+    </script> -->
+    <!-- End of Script of selecting all -->
 
     <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
     <label for='Plastic'>Plastic</label>
@@ -134,18 +199,32 @@
   	<br>
   
   <a href="#">Range:</a>
-  <form action="/action_page.php"
-	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px">
-	  0
-	  <input type="range" min='1' max='100' value='50' id= 'myRange' clase='slider' style="margin-right: 50px">
-	  100
+  <!-- <form action="/action_page.php"
+	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px"> -->
+	  <!-- 0 -->
+
+	  <input type="range" min="200" max="1500" value="1000" class="slider" id="myRange">
+	  <!-- 100 -->
     <br>
-    <div>Value: <div id='demo'></div></div>
+    <div>Distance in miles : <div id='demo'></div></div>
    </form>
    <br>
    <br>
    <br>
 </div>
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
+  var x = document.getElementById('myRange').value
+
+  
+}
+
+</script>
 
 
 <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
@@ -172,6 +251,10 @@ slider.oninput = function(){
 
 <div id="map"></div>
 
+<script type="text/javascript">
+  
+</script>
+
  <script>
 
   var filters = {Paper:false, Glass:false, Plastic:false, Batteries:false, Metal:false, Carboard:false, Plastic_Bags_Film_Wrap:false, CFLs_and_Tubes:false, Wood_and_Lawn_Waste_Kitchen_Compost:false, Cooking_Oil:false, Electronics:false, Automotive_Fluids_and_Waste_Water: false, Tires:false, Vehicles:false}
@@ -192,7 +275,9 @@ var get_set_options = function() {
   for (option in filters) {
     if (filters[option]) {
       ret_array.push(option)
+      
     }
+    
   }
   return ret_array;
 }
@@ -207,15 +292,17 @@ var filter_markers = function() {
     // start the filter check assuming the marker will be displayed
     // if any of the required features are missing, set 'keep' to false
     // to discard this marker
-    keep= true 
+    keep= false; 
     for (opt=0; opt<set_filters.length; opt++) {
       //console.log(marker.properties[set_filters[opt]])
       if (marker.properties[set_filters[opt]]) {
         //console.log("hi there")
-        keep = false;
+        keep = true;
       }
     }
+
     marker.setVisible(keep)
+    
   }
 }
 
@@ -279,18 +366,21 @@ function loadMarkers() {
     // locate you.
     var map, infoWindow
     var markers = [] //marker;
+    var circle; //global variable,
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 46.8797, lng: -110.3626},
             zoom: 7,
             visibility: 'false',
             disableDefaultUI: false,     // to show the UI of the map
-            scrollwheel: true,    // to use scroll wheel for zooming
+            // scrollwheel: true,    // to use scroll wheel for zooming
             draggable: true,     // to allow the user to drag the map with mouse
             //mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
             maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
             minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
             // setting the zoom control style and postion
+            // scrollwheel: false,
+            gestureHandling: 'cooperative',
             zoomControlOptions: {
               position: google.maps.ControlPosition.TOP_RIGHT,
               //style: google.maps.ZoomControlStyle.DEFAULT
@@ -322,7 +412,8 @@ function loadMarkers() {
 
                           console.log("Start Draw");
             //drawing range circle 
-            var Range_circle = new google.maps.Circle({
+            
+             var Range_circle = new google.maps.Circle({
               strokeColor: '#FF0000',
               strokeOpacity: 0.8,
               strokeWeight: 2,
@@ -330,10 +421,45 @@ function loadMarkers() {
               fillOpacity: 0.35,
               map: map,
               center: global_pos,
-              radius: Math.sqrt(100) * 50
-            });
+              radius: Math.sqrt(100) * document.getElementById("demo").value
+              //google.maps.event.trigger(MapInstance,'resize')
+            }); 
 
-                
+            
+            
+            
+
+
+
+            // $(function() {
+            //   circle = new google.maps.Circle({
+            //     strokeColor: "#FF0000",
+            //     strokeOpacity: 0.8,
+            //     strokeWeight: 2,
+            //     fillColor: "#FF0000",
+            //     fillOpacity: 0.35,
+            //     map: myMap,
+            //     radius: 500
+            //   });
+            //   circle.bindTo('center', marker, 'postion');
+
+            //   $( "#slide" ).slider({
+            //     orientation: "horizontal",
+            //     range: "min",
+            //     max: 10000,
+            //     min: 500,
+            //     value: 500,
+            //     slide: function( event, ui ) {
+            //      updateRadius(circle, ui.value);
+            //     }
+            //   });
+            // });
+
+            // function updateRadius(circle, rad){
+            //   circle.setRadius(rad);
+            // }
+
+                            
 
       
 
@@ -390,11 +516,10 @@ function loadMarkers() {
           {lat: 46.73986059969267, lng: -114.67529296874999}, 
           {lat: 47.27922900257082, lng: -115.42236328124999},
           {lat: 47.502358951968574, lng: -115.7080078125},
-         {lat: 47.70976154266637, lng: -115.7080078125}, 
-         {lat: 47.931066347509784, lng: -115.94970703125},
-         {lat: 47.97705279557946, lng: -116.0430908203125},
+          {lat: 47.70976154266637, lng: -115.7080078125}, 
+          {lat: 47.931066347509784, lng: -115.94970703125},
+          {lat: 47.97705279557946, lng: -116.0430908203125},
           {lat: 49.001843917978526, lng: -116.0540771484375},
-   
           {lat: 48.99463598353405, lng: -104.04052734375}
 
         ];
@@ -415,20 +540,20 @@ function loadMarkers() {
 
 // range circle
 
-if (navigator.geolocation) {
-  var Range_circle = new google.maps.Circle({
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.35,
-              map: map,
-              center: {lat: 49.25, lng: -123.1},
-              radius: Math.sqrt(100) * 1000
-            });
+// if (navigator.geolocation) {
+//   var Range_circle = new google.maps.Circle({
+//               strokeColor: '#FF0000',
+//               strokeOpacity: 0.8,
+//               strokeWeight: 2,
+//               fillColor: '#FF0000',
+//               fillOpacity: 0.35,
+//               map: map,
+//               center: {lat: 49.25, lng: -123.1},
+//               radius: Math.sqrt(100) * 1000
+//             });
 
-      Range_circle.setMap(map);
-    }
+//       Range_circle.setMap(map);
+//     }
 
 /////////////////////////////////////////////////////
 
