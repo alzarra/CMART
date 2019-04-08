@@ -306,24 +306,24 @@ input.chk-btn:checked + label {
   
 }
 
-//////////////TABLE///////////////
+/* STATS TABLE */
 
 table.blueTable {
   font-family: Verdana, Geneva, sans-serif;
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
-  width: 100%;
-  text-align: left;
-  border-collapse: collapse;
+  width: 50%;
+  text-align: center;
+
 }
 
 table.blueTable td, table.blueTable th {
   border: 0px solid #AAAAAA;
-  padding: 30px 100px;
+  padding: 25px 100px;
 }
 
 table.blueTable tbody td {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 table.blueTable tr:nth-child(even) {
@@ -341,7 +341,7 @@ table.blueTable thead {
 table.blueTable thead th {
   font-size: 15px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #FFFFFF; /* Top Row Text Color */
   border-left: 2px solid #D0E4F5;
 }
 
@@ -360,6 +360,67 @@ table.blueTable tfoot .links {
 }
 
 table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+/* STATES TABLE: RESOURCE SAVING */
+
+table.greenTable {
+  font-family: Verdana, Geneva, sans-serif;
+  border: 1px solid green;
+  background-color: rgb(255,255,225); /* Lighter Rows */
+  width: 50%;
+  text-align: center;
+
+}
+
+table.greenTable td, table.greenTable th {
+  border: 0px solid #AAAAAA;
+  padding: 25px 100px;
+}
+
+table.greenTable tbody td {
+  font-size: 15px;
+}
+
+table.greenTable tr:nth-child(even) {
+  background: rgb(200,255,200); /* Darker Rows */
+}
+
+table.greenTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, rgb(181,230,29) 0%, rgb(34,177,76) 66%, rgb(0,128,0) 100%);
+  background: -webkit-linear-gradient(top, rgb(181,230,29) 0%, rgb(34,177,76) 66%, rgb(0,128,0) 100%);
+  background: linear-gradient(to bottom, rgb(181,230,29) 0%, rgb(34,177,76) 66%, rgb(0,128,0) 100%);
+  border-bottom: 2px solid #444444;
+}
+
+table.greenTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF; /* Top Row Text Color */
+  border-left: 2px solid #D0E4F5;
+}
+
+table.greenTable thead th:first-child {
+  border-left: none;
+}
+
+
+
+table.greenTable tfoot td {
+  font-size: 14px;
+}
+
+table.greenTable tfoot .links {
+  text-align: right;
+}
+
+table.greenTable tfoot .links a{
   display: inline-block;
   background: #1C6EA4;
   color: #FFFFFF;

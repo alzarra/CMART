@@ -95,7 +95,7 @@
 						amount = parseFloat(document.getElementById('paperKG').textContent);
 						num = parseFloat(document.getElementById('CO2saved').textContent);
 						total = num + amount*.0043;
-						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " TON(s)";
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " tons)";
 					}
 
 
@@ -172,7 +172,7 @@ li2{ text-align:right;}
             	<h10>Your Statistics</h10>
     </div>
     <div class="item2" style="margin-left: -5px; margin-right: -5px; height: 100%; margin-top: 5px;">
-    	What are you recycling? 
+    	Material: 
 
     	<select name="wgtmsr" id="wgtmsr">
 		  <option>Plastic</option>
@@ -181,11 +181,11 @@ li2{ text-align:right;}
 
 		</select>
 
-		&nbsp;&nbsp;&nbsp;Amount?
+		&nbsp;&nbsp;&nbsp;Amount:
 
 		<input type="text" name="amount" value="0" id="wgtmsr2">
 
-		&nbsp;&nbsp;&nbsp;In?
+		&nbsp;&nbsp;&nbsp;Measurment:
 
 		<select name="wgtmsr" id="wgtmsr3">
 		  <option>lbs</option>
@@ -197,19 +197,18 @@ li2{ text-align:right;}
     </div>
 
     <div class="item2" style="margin-left: -5px; margin-right: -5px; height: 100%; margin-top: 5px;">
-    	<table class="blueTable" >
+
+    	<table class="blueTable" style="float: left;;" >
 <thead >
 <tr>
 <th>Material</th>
 <th>lbs</th>
 <th>Kilograms</th>
-<th>Recourse Savings</th>
-<th>Amount</th>
 </tr>
 </thead>
 <tfoot>
 <tr>
-<td colspan="4">
+<td colspan="3">
 </td>
 </tr>
 </tfoot>
@@ -218,8 +217,7 @@ li2{ text-align:right;}
 <td><b>Plastic</b></td>
 	<td><label id="plasticIBS">0.00</label></td>
 	<td><label id="plasticKG">0.00</label></td>
-	<td><label><b>Oil</b></label></td>
-	<td><label id="oilSaved">0.00 barrel(s)</label></td>
+
 
 
 </tr>
@@ -228,8 +226,7 @@ li2{ text-align:right;}
 <td><b>Paper</b></td>
 	<td><label id="paperIBS">0.00</label></td>
 	<td><label id="paperKG">0.00</label></td>
-	<td><label><b>Trees</b></label></td>
-	<td><label id="treeSaved">0.00 tree(s)</label></td>
+
 
 </tr>
 
@@ -237,6 +234,44 @@ li2{ text-align:right;}
 <td><b>Glass</b></td>
 	<td><label id="glassIBS">0.00</label></td>
 	<td><label id="glassKG">0.00</label></td>
+
+
+</tr>
+
+
+
+</tbody>
+</tr>
+</table>
+
+    	<table class="greenTable" style="float: left;">
+<thead >
+<tr>
+<th>Recourse Savings</th>
+<th>Amount</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="2">
+</td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+	<td><label><b>Oil</b></label></td>
+	<td><label id="oilSaved">0.00 barrel(s)</label></td>
+
+
+</tr>
+
+<tr>
+	<td><label><b>Trees</b></label></td>
+	<td><label id="treeSaved">0.00 tree(s)</label></td>
+
+</tr>
+
+<tr>
 	<td><label><b>CO2</b></label></td>
 	<td><label id="CO2saved">0.00 ton(s)</label></td>
 
@@ -246,6 +281,8 @@ li2{ text-align:right;}
 </tbody>
 </tr>
 </table>
+
+
 
 <!--<p style="text-align: left" size"22">-About 65 pounds of plastic is made from only 6% of barrel of oil</p>-->
 <br>

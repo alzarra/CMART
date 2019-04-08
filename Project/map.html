@@ -85,20 +85,20 @@
 
 <!-- tital bar -->
 
-<div class="grid-container">
+<div class="grid-container" style="border-radius: 30px 30px 30px 30px;">
     <div class="item1">
             
               <h10>Recycle Montana Map</h10>
     </div>
-    <div class="item2" style="height:750px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px;"  >
+     <div class="item2" style="height:775px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px; border-radius: 0px 0px 30px 30px;"  >
 
 
 <!-- side search bar -->
 
-<div id="mySidenav" class="sidenav" style="font-size: 16px; ">
+<div id="mySidenav" class="item2" style="font-size: 15px; width: 215px; margin-top: -23px; margin-left: -25px; height: 96%; border-radius: 0px 0px 0px 30px; ">
   <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   
-  <a href="#">Recyclable Materials:</a>
+  Recyclable Materials: <br><br>
   
       <!-- !!! Not working because each click it calls the filter function and selecting all is not clicking  -->
    <!--  <input type="checkbox" name="select-all" id="select-all" class='chk-btn'>
@@ -160,7 +160,7 @@
     <label for='CFLs_and_Tubes'>CFLs & Tubes</label>
 <br><br>
     <input type="checkbox" name="filter" id="Wood_and_Lawn_Waste__Kitchen_Compost" class='chk-btn'>
-    <label for='Wood_and_Lawn_Waste__Kitchen_Compost'>Wood & Lawn Waste/Kitchen Compost</label>
+    <label for='Wood_and_Lawn_Waste__Kitchen_Compost' style="font-size: 10px">Wood & Lawn Waste/Kitchen Compost</label>
 <br><br>
     <input type="checkbox" name="filter" id="Cooking_Oil" class='chk-btn'>
     <label for='Cooking_Oil'>Cooking Oil</label>
@@ -169,7 +169,7 @@
     <label for='Electronics'>Electronics</label>
 <br><br>
     <input type="checkbox" name="filter" id="Automotive_Fluids_and_Waste_Water" class='chk-btn'>
-    <label for='Automotive_Fluids_and_Waste_Water'>Automotive Fluids & Waste Water</label>
+    <label for='Automotive_Fluids_and_Waste_Water' style="font-size: 10px">Automotive Fluids & Waste Water</label>
 <br><br>
     <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
     <label for='Tires'>Tires</label>
@@ -196,9 +196,9 @@
   	<input id="KoM" class="checkbox" name="Tires" value="Tires"> <br>
   	<input id="KoM" class="checkbox" name="Vehicles" value="Vehicles"> <br> -->
 
-  	<br>
+  	<br><br>
   
-  <a href="#">Range:</a>
+  Range:
   <!-- <form action="/action_page.php"
 	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px"> -->
 	  <!-- 0 -->
@@ -249,7 +249,7 @@ slider.oninput = function(){
 </script> -->
 
 
-<div id="map"></div>
+<div id="map" class="item2" style="width: auto; margin-right: -25px; margin-top: -830px; margin-left: 275px;   border-radius: 0px 0px 0px 0px; height: 75%;"></div>
 
 <script type="text/javascript">
   
@@ -662,7 +662,9 @@ function loadMarkers() {
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
         async defer></script>
 
-<div class="fix-me button"id="location_info"><div>
+<div class="fix-me button"id="location_info" style="width: auto; margin-right: -25px; margin-left: 275px; height: 130.5px; border-radius: 0px 0px 30px 0px;">All Recycled points are show in the map, Please select The recyclable material desired
+  <br>
+  click on the recycling point to show more infomation about it<div>
 
 </body>
 </html>
