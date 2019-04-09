@@ -3,6 +3,7 @@
 <head>
 	<title>Montana Recycle - Map</title>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery.localscroll@2.0.0/jquery.localScroll.min.js"></script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -30,6 +31,38 @@
   padding: -5px;
 
 }
+.slider {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-left: 10%;
+  border: 1px solid rgb(244, 160, 36);
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #4CAF50;
+  cursor: pointer;
+}
 
 </style>
 
@@ -53,22 +86,55 @@
 
 <!-- tital bar -->
 
-<div class="grid-container">
+<div class="grid-container" style="border-radius: 30px 30px 30px 30px;">
     <div class="item1">
             
               <h10>Recycle Montana Map</h10>
     </div>
-    <div class="item2" style="height:750px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px;"  >
+     <div class="item2" style="height:775px; margin-left: -5px; margin-top: 5px; margin-right: -5px;  border-radius: 0px; border-radius: 0px 0px 30px 30px;"  >
 
 
 <!-- side search bar -->
 
-<div id="mySidenav" class="sidenav" style="font-size: 16px; ">
+<div id="mySidenav" class="item2" style="font-size: 15px; width: 215px; margin-top: -23px; margin-left: -25px; height: 96%; border-radius: 0px 0px 0px 30px; ">
   <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   
-  <a href="#">Recyclable Materials:</a>
+  Recyclable Materials: <br><br>
   
+      <!-- !!! Not working because each click it calls the filter function and selecting all is not clicking  -->
+   <!--  <input type="checkbox" name="select-all" id="select-all" class='chk-btn'>
+    <label for= 'select-all'>Select All</label>
+    <br><br>
 
+    Script for selecting all 
+    <script type="text/javascript">
+
+        function selectAll() {
+            var items = document.getElementsByName('filter');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = true;
+            }
+        }
+
+        function UnSelectAll() {
+            var items = document.getElementsByName('filter');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].type == 'checkbox')
+                    items[i].checked = false;
+            }
+        }     
+      // Listen for click on toggle checkbox
+        $('#select-all').click(function(event) {   
+            if(this.checked) {
+                // Iterate each checkbox
+                selectAll()
+            } else {
+                UnSelectAll()
+            }
+        });
+    </script> -->
+    <!-- End of Script of selecting all -->
 
     <input type="checkbox" name="filter" id="Plastic" class='chk-btn'>
     <label for='Plastic'>Plastic</label>
@@ -95,7 +161,7 @@
     <label for='CFLs_and_Tubes'>CFLs & Tubes</label>
 <br><br>
     <input type="checkbox" name="filter" id="Wood_and_Lawn_Waste__Kitchen_Compost" class='chk-btn'>
-    <label for='Wood_and_Lawn_Waste__Kitchen_Compost'>Wood & Lawn Waste/Kitchen Compost</label>
+    <label for='Wood_and_Lawn_Waste__Kitchen_Compost' style="font-size: 10px">Wood & Lawn Waste/Kitchen Compost</label>
 <br><br>
     <input type="checkbox" name="filter" id="Cooking_Oil" class='chk-btn'>
     <label for='Cooking_Oil'>Cooking Oil</label>
@@ -104,7 +170,7 @@
     <label for='Electronics'>Electronics</label>
 <br><br>
     <input type="checkbox" name="filter" id="Automotive_Fluids_and_Waste_Water" class='chk-btn'>
-    <label for='Automotive_Fluids_and_Waste_Water'>Automotive Fluids & Waste Water</label>
+    <label for='Automotive_Fluids_and_Waste_Water' style="font-size: 10px">Automotive Fluids & Waste Water</label>
 <br><br>
     <input type="checkbox" name="filter" id="Tires" class='chk-btn'>
     <label for='Tires'>Tires</label>
@@ -131,21 +197,38 @@
   	<input id="KoM" class="checkbox" name="Tires" value="Tires"> <br>
   	<input id="KoM" class="checkbox" name="Vehicles" value="Vehicles"> <br> -->
 
-  	<br>
+  	<br><br>
   
-  <a href="#">Range:</a>
-  <form action="/action_page.php"
-	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px">
-	  0
-	  <input type="range" min='1' max='100' value='50' id= 'myRange' clase='slider' style="margin-right: 50px">
-	  100
+  Range:
+  <!-- <form action="/action_page.php"
+	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px"> -->
+	  <!-- 0 -->
+
+	  <input type="range" min="200" max="1500" value="850" class="slider" id="myRange">
+	  <!-- 100 -->
     <br>
-    <div>Value: <div id='demo'></div></div>
+    <div>Distance in miles : <div id='demo'></div></div>
    </form>
    <br>
    <br>
    <br>
 </div>
+<script>
+	//document.getElementById('myRange').value = 500
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+	//document.getElementById('myRange').value = 500
+  output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
+   var x = document.getElementById('myRange').value
+  //location.reload();
+
+  
+}
+
+</script>
 
 
 <!-- <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Filter</span>
@@ -170,7 +253,11 @@ slider.oninput = function(){
 </script> -->
 
 
-<div id="map"></div>
+<div id="map" class="item2" style="width: auto; margin-right: -25px; margin-top: -830px; margin-left: 275px;   border-radius: 0px 0px 0px 0px; height: 75%;"></div>
+
+<script type="text/javascript">
+  
+</script>
 
  <script>
 
@@ -192,7 +279,9 @@ var get_set_options = function() {
   for (option in filters) {
     if (filters[option]) {
       ret_array.push(option)
+      
     }
+    
   }
   return ret_array;
 }
@@ -207,15 +296,17 @@ var filter_markers = function() {
     // start the filter check assuming the marker will be displayed
     // if any of the required features are missing, set 'keep' to false
     // to discard this marker
-    keep= true 
+    keep= false; 
     for (opt=0; opt<set_filters.length; opt++) {
       //console.log(marker.properties[set_filters[opt]])
       if (marker.properties[set_filters[opt]]) {
         //console.log("hi there")
-        keep = false;
+        keep = true;
       }
     }
+
     marker.setVisible(keep)
+    
   }
 }
 
@@ -260,7 +351,7 @@ function loadMarkers() {
                       + "</h3>Town: " +  townText
                       + "<br>Recycling: " + descriptionText   
                       + "<br>Website: <a href=\""+ websiteText
-                      + "\">Link</a><br>Note: "+ noteText
+                      + "\" target=\"_blank\">Link</a><br>Note: "+ noteText
                       +"</div>"
 
 
@@ -279,18 +370,21 @@ function loadMarkers() {
     // locate you.
     var map, infoWindow
     var markers = [] //marker;
+    var circle; //global variable,
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 46.8797, lng: -110.3626},
             zoom: 7,
             visibility: 'false',
             disableDefaultUI: false,     // to show the UI of the map
-            scrollwheel: true,    // to use scroll wheel for zooming
+            // scrollwheel: true,    // to use scroll wheel for zooming
             draggable: true,     // to allow the user to drag the map with mouse
             //mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
             maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
             minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
             // setting the zoom control style and postion
+            // scrollwheel: false,
+            gestureHandling: 'cooperative',
             zoomControlOptions: {
               position: google.maps.ControlPosition.TOP_RIGHT,
               //style: google.maps.ZoomControlStyle.DEFAULT
@@ -322,18 +416,55 @@ function loadMarkers() {
 
                           console.log("Start Draw");
             //drawing range circle 
-            var Range_circle = new google.maps.Circle({
+            
+             var Range_circle = new google.maps.Circle({
               strokeColor: '#FF0000',
               strokeOpacity: 0.8,
               strokeWeight: 2,
               fillColor: '#FF0000',
-              fillOpacity: 0.35,
+              fillOpacity: 0.1,
               map: map,
               center: global_pos,
-              radius: Math.sqrt(100) * 50
-            });
+              radius: Math.sqrt(100) * document.getElementById("myRange").value
+              //$.scrollTo("#myRange");
+              //google.maps.event.trigger(MapInstance,'resize')
+            }); 
 
-                
+            
+            
+            
+
+
+
+            // $(function() {
+            //   circle = new google.maps.Circle({
+            //     strokeColor: "#FF0000",
+            //     strokeOpacity: 0.8,
+            //     strokeWeight: 2,
+            //     fillColor: "#FF0000",
+            //     fillOpacity: 0.35,
+            //     map: myMap,
+            //     radius: 500
+            //   });
+            //   circle.bindTo('center', marker, 'postion');
+
+            //   $( "#slide" ).slider({
+            //     orientation: "horizontal",
+            //     range: "min",
+            //     max: 10000,
+            //     min: 500,
+            //     value: 500,
+            //     slide: function( event, ui ) {
+            //      updateRadius(circle, ui.value);
+            //     }
+            //   });
+            // });
+
+            // function updateRadius(circle, rad){
+            //   circle.setRadius(rad);
+            // }
+
+                            
 
       
 
@@ -390,11 +521,10 @@ function loadMarkers() {
           {lat: 46.73986059969267, lng: -114.67529296874999}, 
           {lat: 47.27922900257082, lng: -115.42236328124999},
           {lat: 47.502358951968574, lng: -115.7080078125},
-         {lat: 47.70976154266637, lng: -115.7080078125}, 
-         {lat: 47.931066347509784, lng: -115.94970703125},
-         {lat: 47.97705279557946, lng: -116.0430908203125},
+          {lat: 47.70976154266637, lng: -115.7080078125}, 
+          {lat: 47.931066347509784, lng: -115.94970703125},
+          {lat: 47.97705279557946, lng: -116.0430908203125},
           {lat: 49.001843917978526, lng: -116.0540771484375},
-   
           {lat: 48.99463598353405, lng: -104.04052734375}
 
         ];
@@ -415,20 +545,20 @@ function loadMarkers() {
 
 // range circle
 
-if (navigator.geolocation) {
-  var Range_circle = new google.maps.Circle({
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.35,
-              map: map,
-              center: {lat: 49.25, lng: -123.1},
-              radius: Math.sqrt(100) * 1000
-            });
+// if (navigator.geolocation) {
+//   var Range_circle = new google.maps.Circle({
+//               strokeColor: '#FF0000',
+//               strokeOpacity: 0.8,
+//               strokeWeight: 2,
+//               fillColor: '#FF0000',
+//               fillOpacity: 0.35,
+//               map: map,
+//               center: {lat: 49.25, lng: -123.1},
+//               radius: Math.sqrt(100) * 1000
+//             });
 
-      Range_circle.setMap(map);
-    }
+//       Range_circle.setMap(map);
+//     }
 
 /////////////////////////////////////////////////////
 
@@ -537,7 +667,9 @@ if (navigator.geolocation) {
  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBiL43prKFi1dr_HPrMlL-b16KP_4kRa-c&callback=initMap"
         async defer></script>
 
-<div class="fix-me button"id="location_info"><div>
+<div class="fix-me button"id="location_info" style="width: auto; margin-right: -25px; margin-left: 275px; height: 130.5px; border-radius: 0px 0px 30px 0px;">All Recycled points are show in the map, Please select The recyclable material desired
+  <br>
+  click on the recycling point to show more infomation about it<div>
 
 </body>
 </html>
