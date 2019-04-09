@@ -1,91 +1,120 @@
 <!DOCTYPE html>
+
+
+
+<!-- Webpage Begin -->
 <html>
+
+
+
+<!-- Website Title -->
 <head>
 	<title>Montana Recycle - User</title>
 	<link href="style.css" rel="stylesheet" type="text/css">
 
+	
+	
+<!-- Style Sheet -->
 <style type="text/css">
-		
-h3 {
+h3 
+{
 	color : red;
 	margin-left: 20px;
 }
 
-form {
+form 
+{
 	margin-left: 10%;
 	font-size: 20px;
 }
 </style>
 </head>
+
+
+
+<!-- Webpage Body Start -->
 <body>
 
-<!-- logo -->
+
+
+<!-- Logos -->
 <img src='pictures/MR.png' alt='logo' style="width:250px;">
 <img src='pictures/05_DEQLogo_TransparentBG_Web.png' alt='logo' style="float:right;">
 
 
-<!-- nav bar -->
+
+<!-- Navigation Bar -->
 	<ul>
-		<li><a clas = 'active' href = "index.html">Home</a></li>
-		<li><a href = 'map.html' > Map</a></li>
-		<li><a href = 'FAQ.html' > FAQ </a></li>
-		<li><a href = 'contact.html' > Contact Us</a></li>
-		<li><a href = 'about.html' > About Us</a></li>
-        <li><a href = 'stats.html' > Recycling Statistics</a></li>
+		<li><a clas = 'active' 			href = "index.html">Home	</a></li>
+		<li><a href = 'map.html' 		> Map						</a></li>
+		<li><a href = 'FAQ.html' 		> FAQ 						</a></li>
+		<li><a href = 'contact.html' 	> Contact Us				</a></li>
+		<li><a href = 'about.html' 		> About Us					</a></li>
+        <li><a href = 'stats.html' 		> Recycling Statistics		</a></li>
 		<li><a href = 'mats.html' 		> Recycable Materials		</a></li>
-        <li2><a href = 'login.html' > Login</a></li>
+        <li2><a href = 'login.html' 	> Login						</a></li>
 	</ul>
 	
-	<div class="grid-container">
+	
+	
+<!-- Page Title -->
+<div class="grid-container">
     <div class="item1">
-            
-              <h10>Sign Up</h10>
+		<h10>Sign Up</h10>
     </div>
+	
+	
+	
+	<!-- Body 1 Start -->	
     <div class="item2"  style="margin-left: -5px; margin-right: -5px; height: 100%; margin-top: 5px;">
 
+	
+	
+	<!-- Form Start -->
 	<div>
 	<form method="post" action="data.php">
 		<div class="form-group" style="text-align: center;" >
+		
+		<!-- Username -->
 		<label style="padding-right:11%">Username</label><br>
 		<input type="text" name="user" id="userName" size="25" style="margin-right: 200px;">
 
-		<br>
-		<br>
+		<br><br>
 
+		<!-- Password -->
 		<label style="padding-right:11%">Password</label><br>
 		<input type="password" name="password"  id="myInput" size="25" style="margin-right: 200px;">
+		
 		<br>
+		
+		<!-- Show Password Checkbox -->
 		<input type="checkbox" onclick="myFunction()" style="margin-right: 0px;">
 		<label style="margin-right: 200px;">Show Password</label>
 
-		<br>
-		<br>
+		<br><br>
 
+		<!-- E-mail -->
 		<label id = "email_L" style="padding-right:11%">E-mail</label><br>
 		<input type="text" id = "email" name="emil" placeholder="example@website.com" size="25" style="margin-right: 200px;">
 
-
-		<br>
-		<br>
+		<br><br>
 		
+		<!-- Submit Button -->
 		<input class="button" type="submit" name="submit" value="Create" style="margin-right: 200px;">
-	</form>
-		<br>
-		<br>
-		<br>
-		<br>
-
-
-		<label style="padding-right:11%">Already got an account?</label><br>
-		<input class="button" type="button" name="login" value="Login!" onClick="location.href = 'login.html'" style="margin-right: 200px;">
-
 		</div>
-
-
+		</form>	<!-- Form End -->
 		
-	
-	</div>
+		<br><br><br><br>
 
+		<!-- Go To Login Button -->
+		<label style="padding-right:11%">Already have an account?</label><br>
+		<input class="button" type="button" name="login" value="Login!" onClick="location.href = 'login.html'" style="margin-right: 200px;">
+	</div>	<!-- Form End -->
+	</div>	<!-- Body 1 End -->
+
+	
+	
+	<!-- Grabbing Password -->
 	<script>
 		function myFunction() {
 		  var x = document.getElementById("myInput");
@@ -96,5 +125,8 @@ form {
 		  }
 		}
 	</script>
-</body>
-</html>
+	
+	
+</div>	<!-- Page Title End -->
+</body>	<!-- Webpage Body End -->
+</html>	<!-- Webpage End  -->
