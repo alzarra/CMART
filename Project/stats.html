@@ -104,8 +104,8 @@
 
 						amount = parseFloat(document.getElementById('paperKG').textContent);
 						num = parseFloat(document.getElementById('CO2saved').textContent);
-						total = num + amount*.0043;
-						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " tons";
+						total = (num + amount*8.6);
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " Ibs";
 					}
 
 
@@ -187,6 +187,11 @@
 							document.getElementById('electronicKG').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('electronicIBS').textContent);
+						num = parseFloat(document.getElementById('goldSaved').textContent);
+						total = num + (amount/300);
+						document.getElementById('goldSaved').textContent = "" + total.toFixed(2) + " grams";
 					}
 
 					if(material == 'Rubber')
@@ -213,6 +218,18 @@
 							document.getElementById('rubberKG').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('rubberIBS').textContent);
+						num = parseFloat(document.getElementById('CO2saved').textContent);
+						total = num + (amount*3.23);
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " Ibs";
+
+						amount = parseFloat(document.getElementById('rubberIBS').textContent);
+						num = parseFloat(document.getElementById('oilSaved').textContent);
+						total = num + (amount*0.18);
+						document.getElementById('oilSaved').textContent = "" + total.toFixed(2) + " Ibs";
+
+
 					}
 
 					if(material == 'Metal')
@@ -266,6 +283,16 @@
 							document.getElementById('cardboardKG').textContent = "" + total.toFixed(2);
 
 						}
+
+						amount = parseFloat(document.getElementById('cardboardIBS').textContent);
+						num = parseFloat(document.getElementById('treeSaved').textContent);
+						total = num + (amount/150);
+						document.getElementById('treeSaved').textContent = "" + total.toFixed(2) + " trees";
+
+						amount = parseFloat(document.getElementById('cardboardKG').textContent);
+						num = parseFloat(document.getElementById('CO2saved').textContent);
+						total = (num + amount*8.6);
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " Ibs";
 					}
 
 
