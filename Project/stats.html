@@ -68,7 +68,7 @@
 						amount = parseFloat(document.getElementById('plasticIBS').textContent);
 						num = parseFloat(document.getElementById('oilSaved').textContent);
 						total = num + (amount/1083);
-						document.getElementById('oilSaved').textContent = "" + total.toFixed(2) + " barrel(s)";
+						document.getElementById('oilSaved').textContent = "" + total.toFixed(2) + " barrels";
 
 					}
 
@@ -100,12 +100,12 @@
 						amount = parseFloat(document.getElementById('paperIBS').textContent);
 						num = parseFloat(document.getElementById('treeSaved').textContent);
 						total = num + (amount/150);
-						document.getElementById('treeSaved').textContent = "" + total.toFixed(2) + " tree(s)";
+						document.getElementById('treeSaved').textContent = "" + total.toFixed(2) + " trees";
 
 						amount = parseFloat(document.getElementById('paperKG').textContent);
 						num = parseFloat(document.getElementById('CO2saved').textContent);
 						total = num + amount*.0043;
-						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " tons)";
+						document.getElementById('CO2saved').textContent = "" + total.toFixed(2) + " tons";
 					}
 
 
@@ -135,6 +135,139 @@
 
 						}
 					}
+
+					if(material == 'Battries')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('battriesIBS').textContent);
+							total = num+amount;
+							document.getElementById('battriesIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('battriesKG').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('battriesKG').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('battriesIBS').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('battriesIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('battriesKG').textContent);
+							total = num+ (amount);
+							document.getElementById('battriesKG').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+
+					if(material == 'Electronic')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('electronicIBS').textContent);
+							total = num+amount;
+							document.getElementById('electronicIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('electronicKG').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('electronicKG').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('electronicIBS').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('electronicIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('electronicKG').textContent);
+							total = num+ (amount);
+							document.getElementById('electronicKG').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Rubber')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('rubberIBS').textContent);
+							total = num+amount;
+							document.getElementById('rubberIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('rubberKG').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('rubberKG').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('rubberIBS').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('rubberIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('rubberKG').textContent);
+							total = num+ (amount);
+							document.getElementById('rubberKG').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+					if(material == 'Metal')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('metalIBS').textContent);
+							total = num+amount;
+							document.getElementById('metalIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('metalKG').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('metalKG').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('metalIBS').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('metalIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('metalKG').textContent);
+							total = num+ (amount);
+							document.getElementById('metalKG').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
+
+					if(material == 'Cardboard')
+					{
+						if(inWhat == 'lbs')
+						{
+							num = parseFloat(document.getElementById('cardboardIBS').textContent);
+							total = num+amount;
+							document.getElementById('cardboardIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('cardboardKG').textContent);
+							total = (num + (amount*0.453592));
+							document.getElementById('cardboardKG').textContent = "" + total.toFixed(2);
+						}
+
+							if(inWhat == 'kg')
+						{
+							num = parseFloat(document.getElementById('cardboardIBS').textContent);
+							total = num+ (amount * 2.20462);
+							document.getElementById('cardboardIBS').textContent = "" + total.toFixed(2);
+
+							num = parseFloat(document.getElementById('cardboardKG').textContent);
+							total = num+ (amount);
+							document.getElementById('cardboardKG').textContent = "" + total.toFixed(2);
+
+						}
+					}
+
 
 
 					
@@ -197,6 +330,11 @@ li2{ text-align:right;}
 		  <option>Plastic</option>
 		  <option>Paper</option>
 		  <option>Glass</option>
+		  <option>Battries</option>
+		  <option>Electronic</option>
+		  <option>Rubber</option>
+		  <option>Metal</option>
+		  <option>Cardboard</option>
 
 		</select>
 
@@ -295,17 +433,17 @@ li2{ text-align:right;}
 <tbody>
 <tr>
 	<td><label><b>Oil</b></label></td>
-	<td><label id="oilSaved">0.00 barrel(s)</label></td>
+	<td><label id="oilSaved">0.00 barrel</label></td>
 
 	<td><label><b>CO2</b></label></td>
-	<td><label id="CO2saved">0.00 ton(s)</label></td>
+	<td><label id="CO2saved">0.00 ton</label></td>
 
 
 </tr>
 
 <tr>
 	<td><label><b>Trees</b></label></td>
-	<td><label id="treeSaved">0.00 tree(s)</label></td>
+	<td><label id="treeSaved">0.00 tree</label></td>
 
 	<td><label><b>Gold</b></label></td>
 	<td><label id="goldSaved">0.00 Ibs</label></td>
