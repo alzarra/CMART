@@ -64,6 +64,65 @@
   cursor: pointer;
 }
 
+/*------------------------------------*/
+
+[code lang=”html”]
+<div class="map-info-window>
+<div class="map-info-close">x</div>
+/*<!– The rest of your content –>*/
+</div>
+[/code]
+
+/*You can insert arbitrary html content into this div (via setContent), just as you would with a standard infoWindow.
+This content can then be styled as per usual.
+
+The absolute minimum required css looks like:*/
+
+[code lang=”css”]
+.map-info-window{
+overflow:hidden;
+position:absolute;
+}
+
+.map-info-window .map-info-close{
+float:right;
+cursor:pointer;
+}
+[/code]
+
+/*In order to get your info window to look something like the top-image example, you’ll want a little more than the barebones:*/
+
+[code lang=”css”]
+.map-info-window{
+background:#333;
+border-radius:4px;
+box-shadow:8px 8px 16px #222;
+color:#fff;
+max-width:200px;
+max-height:300px;
+text-align:center;
+padding:5px 20px 10px;
+overflow:hidden;
+position:absolute;
+text-transform:uppercase;
+}
+.map-info-window .map-info-close{
+float:right;
+cursor:pointer;
+margin-right:-5px;
+margin-left:5px;
+}
+
+.map-info-window h5{
+font-weight:bold;
+}
+.map-info-window p{
+color:#939393;
+}
+[/code]
+
+
+/*--------------------------------------*/
 </style>
 
 
@@ -323,7 +382,7 @@ var map_filter = function(id_val) {
 // and add the pop up (info) windows
 function loadMarkers() {
   console.log('creating markers')
-  var infoWindow = new google.maps.InfoWindow()
+
   geojson_url = 'https://raw.githubusercontent.com/alzarra/Montana-Recycle/master/RB.geojson'
   $.getJSON(geojson_url, function(result) {
       // Post select to url.
@@ -345,6 +404,15 @@ function loadMarkers() {
           map: map,
           properties: val['properties']
          });
+        var infoWindow = new google.maps.InfoWindow({
+           content:"<div><h3>" + titleText
+                      + "</h3>Town: " +  townText
+                      + "<br>Recycling: " + descriptionText   
+                      + "<br>Website: <a href=\""+ websiteText
+                      + "\" target=\"_blank\">Link</a><br>Note: "+ noteText
+                      +"</div>"
+
+        })
 
         //info box 
         var markerInfo = "<div><h3>" + titleText
@@ -356,6 +424,9 @@ function loadMarkers() {
 
 
         marker.addListener('click', function() {
+          console.log(map)
+           
+           infoWindow.open(map, marker);
            $('#location_info').html(markerInfo)
         });
         markers.push(marker)
