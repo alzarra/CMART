@@ -4,6 +4,8 @@
 	<title>Montana Recycle - Map</title>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/jquery.localscroll@2.0.0/jquery.localScroll.min.js"></script>
+   <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+   <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -31,7 +33,7 @@
   padding: -5px;
 
 }
-.slider {
+#myRange {
   -webkit-appearance: none;
   width: 80%;
   height: 25px;
@@ -44,11 +46,11 @@
   border: 1px solid rgb(244, 160, 36);
 }
 
-.slider:hover {
+#myRange:hover {
   opacity: 1;
 }
 
-.slider::-webkit-slider-thumb {
+#myRange::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -57,7 +59,7 @@
   cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
+#myRange::-moz-range-thumb {
   width: 25px;
   height: 25px;
   background: #4CAF50;
@@ -276,7 +278,7 @@
 	oninput="x.value=parseInt(a.value)+parseInt(b.value)" color = 'white' style="margin-left: 50px"> -->
 	  <!-- 0 -->
 
-	  <input type="range" min="200" max="1500" value="850" class="slider" id="myRange">
+	  <div type="range" min="200" max="1500" value="850" class="slider" id="myRange"></div>
 	  <!-- 100 -->
     <br>
     <div>Distance in miles : <div id='demo'></div></div>
@@ -287,14 +289,16 @@
 </div>
 <script>
 	//document.getElementById('myRange').value = 500
-var slider = document.getElementById("myRange");
+var input = document.getElementById("myRange");
 var output = document.getElementById("demo");
-output.innerHTML = slider.value;
+output.innerHTML = input.value;
+console.log(document.getElementById("myRange"))
 
-slider.oninput = function() {
+input.oninput = function() {
 	//document.getElementById('myRange').value = 500
-  output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
-   var x = document.getElementById('myRange').value
+  output.innerHTML = this.value;
+  // output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
+   //var x = document.getElementById('myRange').value
   //location.reload();
 
   
@@ -515,7 +519,8 @@ function loadMarkers() {
             draggable: true,     // to allow the user to drag the map with mouse
             //mapTypeId: google.maps.MapTypId.ROADMAP    // setting the map type, like (hyperd, sattliat, roadmap) now leave it for defult
             maxZoom: 15, // set the max zoom to 15 to cover the city but not all around
-            minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county 
+            minZoom: 9,  // set the min zoom to 9 so the user don't get confuse and go to another county
+            scaleControl: true, 
             // setting the zoom control style and postion
             // scrollwheel: false,
             gestureHandling: 'cooperative',
@@ -549,23 +554,53 @@ function loadMarkers() {
               console.log(global_pos);
 
                           console.log("Start Draw");
-            //drawing range circle 
+            //drawing range circle ...........................................................................................................................
             
-             var Range_circle = new google.maps.Circle({
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.1,
-              map: map,
-              center: global_pos,
-              radius: Math.sqrt(100) * document.getElementById("myRange").value
-              //$.scrollTo("#myRange");
-              //google.maps.event.trigger(MapInstance,'resize')
-            }); 
+            //  var Range_circle = new google.maps.Circle({
+            //   strokeColor: '#FF0000',
+            //   strokeOpacity: 0.8,
+            //   strokeWeight: 2,
+            //   fillColor: '#FF0000',
+            //   fillOpacity: 0.1,
+            //   map: map,
+            //   center: global_pos,
+            //   radius: 500
+            //   //$.scrollTo("#myRange");
+            //   //google.maps.event.trigger(MapInstance,'resize')
+            // }); 
 
             
-            
+            var circle; //global variable, consider adding it to map instead of window
+
+$(function() {
+  circle = new google.maps.Circle({
+    strokeColor: "#FF0000",
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: "#FF0000",
+    fillOpacity: 0.35,
+    map: map,
+    center: global_pos,
+    radius: 500
+  });
+  //circle.bindTo('center', global_pos, 'position');
+
+  $( "#myRange" ).slider({
+    orientation: "horizontal",
+    range: "min",
+    max: 10000,
+    min: 500,
+    value: 850,
+
+    slide: function( event, ui ) {
+     updateRadius(circle, ui.value);
+    }
+  });
+});
+
+function updateRadius(circle, rad){
+  circle.setRadius(rad);
+}
             
 
 
@@ -778,6 +813,12 @@ function loadMarkers() {
 
 
     }
+
+
+
+
+
+
 
     // give error if geolocation faild
     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
