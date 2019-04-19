@@ -289,20 +289,20 @@
 </div>
 <script>
 	//document.getElementById('myRange').value = 500
-var input = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = input.value;
-console.log(document.getElementById("myRange"))
+// var input = document.getElementById("myRange");
+// var output = document.getElementById("demo");
+// output.innerHTML = input.value;
+// console.log(document.getElementById("myRange"))
 
-input.oninput = function() {
-	//document.getElementById('myRange').value = 500
-  output.innerHTML = this.value;
-  // output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
-   //var x = document.getElementById('myRange').value
-  //location.reload();
+// input.oninput = function() {
+// 	//document.getElementById('myRange').value = 500
+//   output.innerHTML = this.value;
+//   // output.innerHTML = Math.round(this.value/166)*100 / 100 +" miles";
+//    //var x = document.getElementById('myRange').value
+//   //location.reload();
 
   
-}
+// }
 
 </script>
 
@@ -584,7 +584,7 @@ $(function() {
     radius: 500
   });
   //circle.bindTo('center', global_pos, 'position');
-
+  
   $( "#myRange" ).slider({
     orientation: "horizontal",
     range: "min",
@@ -594,6 +594,7 @@ $(function() {
 
     slide: function( event, ui ) {
      updateRadius(circle, ui.value);
+     $("#demo").html(Math.floor(ui.value/740));
     }
   });
 });
